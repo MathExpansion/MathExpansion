@@ -15,15 +15,17 @@ function simulateWienerProcess(n_Wiener) {
 let n_Wiener = 800; // シミュレーションするデータ点の数
 var wienerProcess = simulateWienerProcess(n_Wiener);
 
-//シミュレーション結果の出力
-//getRange(行番号, 列番号, 行数, 列数)
-//console.log(wienerProcess);
-//var spreadsheet = SpreadsheetApp.getActive();
+// 結果を別のシートに出力
+  var sheet_Wiener = spreadsheet.getSheetByName("Wiener_Result"); // 結果を出力するシートの名前を指定
+  if (!outputSheet) {
+    sheet_Wiener = spreadsheet.insertSheet("Wiener_Result");
+  }
+
   sheet_Wiener.getRange('A1').activate();
   sheet_Wiener.getCurrentCell().setFormula('=SEQUENCE("'+n_Wiener+'",1,0,1)');
 const sheetgetrange1 = sheet_Wiener.getRange(1,1,n_Wiener).activate();
 const sheetgetrange2 = sheet_Wiener.getRange(1,2,n_Wiener).activate();
-//var sheet = spreadsheet.getActiveSheet();
+
 var chart_Wiener = sheet_Wiener.newChart()
   .asLineChart()
   .addRange(sheetgetrange1)
@@ -37,17 +39,3 @@ var chart_Wiener = sheet_Wiener.newChart()
   .setPosition(285, 3, 17, 16)
   .build();
   sheet_Wiener.insertChart(chart_Wiener);
-
-//var rowcollapse1 = sheetgetrange1.shiftRowGroupDepth(1);
-
-/*
-function cellchoice() {
-  var sheet = SpreadsheetApp.getActiveSheet();
-  var lastRow = sheet.getLastRow();
-  var ary1 = sheet.getRange("A1:B100").getValues();
-  for (i=0; i<=ary1.length-1; i++) {
-    ary1[i][2] = ary1[i][0] * ary1[i][1]
-  }
-  sheet.getRange("A1:B100").setValues(ary1);
-}
-*/
