@@ -1,6 +1,4 @@
 function continuousFourierTransform() {
-  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = spreadsheet.getActiveSheet();
   var dataRange = sheet.getDataRange();
   var values = dataRange.getValues();
   var numRows = values.length;
