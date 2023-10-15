@@ -1,5 +1,5 @@
 function weibull_fitting() {
-  let sheetrange = SpreadsheetApp.getActiveSheet().getActiveRange();
+  let sheetrange = sheet.getActiveRange();
   let data = sheetrange.getValues();
 
   let sort = Array.from(data).sort(order);
