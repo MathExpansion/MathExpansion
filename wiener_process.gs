@@ -16,7 +16,7 @@ let n_Wiener = 800; // シミュレーションするデータ点の数
 var wienerProcess = simulateWienerProcess(n_Wiener);
 
 // 結果を別のシートに出力
-  var sheet_Wiener = spreadsheet.getSheetByName("Wiener_Result"); // 結果を出力するシートの名前を指定
+  let sheet_Wiener = spreadsheet.getSheetByName("Wiener_Result"); // 結果を出力するシートの名前を指定
   if (!outputSheet) {
     sheet_Wiener = spreadsheet.insertSheet("Wiener_Result");
   }
