@@ -31,3 +31,12 @@ function RMSV(T,M) {
   return Math.sqrt( 3 * gas_const * T / M );  
 }
 
+function density_NTP(molar_mass) {
+  return (molar_mass * atm)/(gas_const * T0);
+}
+
+function de_Broglie_wave(m,T) {
+  return h_Planck / (m * RMSV(T,m * n_a));
+}
+
+
