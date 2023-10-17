@@ -8,3 +8,7 @@ const electron_mass = Math.pow(9.1093837015,-31);
 const elementary_charge = Math.pow(1.602176634,-19);
 const Faraday_const = n_a * elementary_charge ;
 const mass_electron = Math.pow(9.1093837015,-31);
+const imag_unit = [
+  [0 , -1],
+  [1 , 0]
+];
