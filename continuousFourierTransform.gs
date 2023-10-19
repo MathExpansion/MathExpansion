@@ -1,13 +1,10 @@
 function continuousDFT(sampleRate) {
-  var dataRange = sheet.getDataRange();
-  var values = dataRange.getValues();
-  var numRows = values.length;
-
+  
   // 新しいシートを作成して結果を保存
   var outputSheet = spreadsheet.insertSheet("Continuous_Fourier_Result");
   outputSheet.appendRow(["Frequency", "Amplitude", "Phase"]);
 
-  var sampleRate = numRows;
+  var sampleRate = FT_reference(numRows);
 
   for (var k = 0; k < numRows; k++) {
     // フーリエ変換を計算
