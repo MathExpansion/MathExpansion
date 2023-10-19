@@ -1,10 +1,10 @@
-function continuousDFT(sampleRate) {
+function continuousFT(sampleRate) {
   
   // 新しいシートを作成して結果を保存
   var outputSheet = spreadsheet.insertSheet("Continuous_Fourier_Result");
   outputSheet.appendRow(["Frequency", "Amplitude", "Phase"]);
 
-  var sampleRate = FT_reference(numRows);
+  var numRows = FT_reference(numRows);
 
   for (var k = 0; k < numRows; k++) {
     // フーリエ変換を計算
@@ -24,6 +24,6 @@ function continuousDFT(sampleRate) {
     var phase = Math.atan2(imagPart, realPart);
 
     // 結果を新しいシートに保存
-    outputSheet.appendRow([frequency, amplitude, phase]);
+    continuousFT(outputSheet).appendRow([frequency, amplitude, phase]);
   }
 }

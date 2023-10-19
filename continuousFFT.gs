@@ -4,7 +4,7 @@ function continuousFFT(sampleRate) {
   var outputSheet = spreadsheet.insertSheet("Continuous_FFT_Result");
   outputSheet.appendRow(["Frequency", "Amplitude", "Phase"]);
 
-  var sampleRate = FT_reference(numRows);
+  var numRows = FT_reference(numRows);
 
   for (var k = 0; k < numRows; k++) {
     // FFTを計算
@@ -19,7 +19,7 @@ function continuousFFT(sampleRate) {
     var phase = Math.atan2(fftData.imag, fftData.real);
 
     // 結果を新しいシートに保存
-    outputSheet.appendRow([frequency, amplitude, phase]);
+    continuousFFT(outputSheet).appendRow([frequency, amplitude, phase]);
   }
 }
 
