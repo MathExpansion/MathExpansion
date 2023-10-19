@@ -5,6 +5,8 @@ Google Spreadsheetsで数式モデルを実装したりするプロジェクト
 GithubのブランチとGASの連携をする  
 以下URLを参照  
 - https://pineplanter.moo.jp/non-it-salaryman/2022/12/22/gas-github/
+sourcetreeがあると楽
+- https://mteam.jp/column/10210/
   
 # branch
 ## ブランチ運用について
