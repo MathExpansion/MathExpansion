@@ -1,4 +1,4 @@
-function continuousFourierTransform() {
+function continuousDFT(sampleRate) {
   var dataRange = sheet.getDataRange();
   var values = dataRange.getValues();
   var numRows = values.length;
@@ -7,8 +7,6 @@ function continuousFourierTransform() {
   var outputSheet = spreadsheet.insertSheet("Continuous_Fourier_Result");
   outputSheet.appendRow(["Frequency", "Amplitude", "Phase"]);
 
-  // サンプリング周波数
-  //var sampleRate = 1.0; // サンプリング周波数を設定（適切な値に変更）
   var sampleRate = numRows;
 
   for (var k = 0; k < numRows; k++) {
