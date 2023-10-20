@@ -1,6 +1,5 @@
-function testPoissonDistribution() {
-  var lambda = 5;
-  var x = 3;
+function testPoissonDistribution(lambda,x) {
+
   var probability = poissonDistribution(lambda, x);
   Logger.log("P(X = " + x + ") = " + probability);
 }
