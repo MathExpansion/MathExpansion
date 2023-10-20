@@ -1,8 +1,6 @@
 function convergence_judgment() {
   function currentvalue(n) { 
-  SpreadsheetApp
-  .getActiveSpreadsheet
-  .getActiveSheet
+  sheet
   .getCurrentCell()
   .offset(n,0)
   .activate()
