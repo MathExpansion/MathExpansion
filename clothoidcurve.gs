@@ -1,8 +1,4 @@
-function drawClothoidCurve() {
-
-  var a = 3; // パラメータaの値
-  var b = 1; // パラメータbの値
-  var stepSize = 0.001; // ステップサイズ
+function drawClothoidCurve(a,b,stepSize) {
 
   var data = [['x', 'y']];
 
