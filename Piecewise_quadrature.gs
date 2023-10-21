@@ -1,5 +1,5 @@
-function Piecewise_quadrature(n,k,stepSize,callbackFn) {
-  let map = minute_interval_.map(callbackFn);
+function piecewise_quadrature(n,k,stepSize,callbackFn) {
+  let map = minute_interval_(n,stepSize,k).map(callbackFn);
   let reduce = map.reduce((previousValue,currentValue) => previousValue + currentValue);
   return reduce;
 }
