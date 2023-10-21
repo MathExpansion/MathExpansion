@@ -1,6 +1,5 @@
-var callbackFn = Math.exp(x);
 function mapping() {
-  const map = arr.map(被積分関数);
+  const map = arr.map(callbackFn);
   return map;
 }
 
