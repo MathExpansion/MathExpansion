@@ -33,5 +33,5 @@ function testRungeKuttaMethod() {
   var data = rungeKuttaMethod(f, y0, t0, tn, h);
 
   // データの表示
-  sheet_RungeKutta.getRange(1, 1, data.length, 2).setValues(data);
+  sheet.getRange(1, 1, data.length, 2).setValues(data);
 }
