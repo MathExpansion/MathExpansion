@@ -1,6 +1,6 @@
-function simulateWienerProcess(n_Wiener) {
+function simulateWienerProcess(n) {
   var wienerProcess = [0]; // 初期値
-  for (var i = 1; i < n_Wiener; i++) {
+  for (var i = 1; i < n; i++) {
     var randomValue = Math.random() * 2 - 1; // -1から1までの一様乱数
     var nextValue = wienerProcess[i-1] + randomValue;
     let rangeactivate = sheet_Wiener.getRange(i,2,1).activate();
@@ -12,7 +12,6 @@ function simulateWienerProcess(n_Wiener) {
 }
 
 // ウィーナー過程のシミュレーション
-let n_Wiener = 800; // シミュレーションするデータ点の数
 var wienerProcess = simulateWienerProcess(n_Wiener);
 
 // 結果を別のシートに出力
