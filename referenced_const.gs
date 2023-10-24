@@ -28,3 +28,10 @@ const pi = Math.PI;
 const sqrt1_2 = Math.SQRT1_2;
 const sqrt2 = Math.SQRT2;
 const rand = Math.random();
+
+//FT_reference
+function FT_reference_() {
+  var dataRange = sheet.getDataRange();
+  var values = dataRange.getValues();
+  var numRows = values.length;
+}
