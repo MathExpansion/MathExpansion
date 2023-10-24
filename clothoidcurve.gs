@@ -8,5 +8,5 @@ function drawClothoidCurve(a,b,stepSize) {
     data.push([x, y]);
   }
 
-  sheet_ClothoidCurve.getRange(1, 1, data.length, data[0].length).setValues(data);
+  sheet.getRange(1, 1, data.length, data[0].length).setValues(data);
 }

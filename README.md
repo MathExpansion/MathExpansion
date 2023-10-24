@@ -7,13 +7,13 @@ A project that implements a mathematical model with Google Spreadsheets
 # 開発環境
 GithubのブランチとGASの連携をする  
 以下URLを参照  
-- https://pineplanter.moo.jp/non-it-salaryman/2022/12/22/gas-github/
+- https://pineplanter.moo.jp/non-it-salaryman/2022/12/22/gas-github/  
 sourcetreeがあると楽
 - https://mteam.jp/column/10210/
 # Development environment
 Link Github branch with GAS
 See URL below
-- https://pineplanter.moo.jp/non-it-salaryman/2022/12/22/gas-github/
+- https://pineplanter.moo.jp/non-it-salaryman/2022/12/22/gas-github/  
 It's easier with sourcetree
 - https://mteam.jp/column/10210/
 
@@ -47,3 +47,8 @@ Example: `#1 ReadMe update`
 手が空いた時に各々がやる感じなので、そこまで使命感みたいなのは持たなくて大丈夫だと思っている  
 # others
 I feel like everyone does it when they have free time, so I don't think it's okay to have that much of a sense of mission.
+
+# 定数及びカスタム関数リファレンス
+# Constants and custom functions reference
+
+$k_b = 1.380649^(-23)$
