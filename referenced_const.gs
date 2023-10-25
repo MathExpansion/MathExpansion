@@ -35,3 +35,6 @@ function FT_reference_() {
   var values = dataRange.getValues();
   var numRows = values.length;
 }
+
+//Gaussian integral or Euler Poisson integral [-inf,inf]exp(-x^2)dx
+const gaussian_integral = Math.sqrt(Math.PI);
