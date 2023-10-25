@@ -1,13 +1,11 @@
-function simulateMaxwellBoltzmannDistribution() {
-  var sheet = SpreadsheetApp.getActiveSheet();
-  
+function simulateMaxwellBoltzmannDistribution(T) {
+
   // シミュレーションのパラメータ
   var numberOfParticles = 1000; // 粒子数
-  var temperature = 300; // 温度（K）
   var mass = 1; // 粒子の質量
 
   // 速度分布を生成
-  var velocities = generateMaxwellBoltzmannDistribution(numberOfParticles, temperature, mass);
+  var velocities = generateMaxwellBoltzmannDistribution(numberOfParticles, T, mass);
 
   // 結果をスプレッドシートに表示
   var data = [];
@@ -18,18 +16,16 @@ function simulateMaxwellBoltzmannDistribution() {
   }
 
   sheet.getRange(1, 1, data.length, data[0].length).setValues(data);
-
-  Logger.log("Maxwell-Boltzmann速度分布をスプレッドシートに表示しました。");
 }
 
 // 速度分布を生成
-function generateMaxwellBoltzmannDistribution(numberOfParticles, temperature, mass) {
-  var kB = 1.380649e-23; // ボルツマン定数 (J/K)
+function generateMaxwellBoltzmannDistribution(numberOfParticles, T, mass) {
+
   var velocities = [];
 
   for (var i = 0; i < numberOfParticles; i++) {
     // Maxwell-Boltzmann分布に従った速度生成
-    var v = Math.sqrt((2 * kB * temperature) / mass) * Math.sqrt(-2 * Math.log(Math.random()));
+    var v = Math.sqrt((2 * k_b * K) / mass) * Math.sqrt(-2 * Math.log(Math.random()));
     velocities.push(v);
   }
 
