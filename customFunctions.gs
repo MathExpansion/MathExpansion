@@ -55,3 +55,20 @@ function squareWave(t) {
   return sign(Math.sin(t));
 }
 
+function Nernst(C_Inside,C_Outside,ion_valent,K) {
+  return (gas_const * K / (ion_valent * Faraday_const)) * Math.log(C_Outside / C_Inside);
+}
+
+function ReynoldsNumber(ρ,v,η,D) {
+  return (ρ * v * D) / η;
+}
+
+function sign(x) {
+  if (x > 0) {
+    return 1;
+  } else if (x < 0) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
