@@ -51,5 +51,7 @@ function sawtooth(t) {
   return t - Math.floor(t);
 }
 
-
+function squareWave(t) {
+  return sign(Math.sin(t));
+}
 
