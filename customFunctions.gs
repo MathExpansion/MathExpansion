@@ -39,12 +39,16 @@ function de_Broglie_wave(m,T) {
   return h_Planck / (m * RMSV(T,m * n_a));
 }
 
-function degToRad(degrees) {
-  return degrees * (Math.PI / 180);
+function degToRad(deg) {
+  return deg * (Math.PI / 180);
 }
 
 function radToDeg(rad) {
   return rad / (Math.PI / 180);
+}
+
+function sawtooth(t) {
+  return t - Math.floor(t);
 }
 
 
