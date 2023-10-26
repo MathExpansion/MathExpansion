@@ -22,20 +22,6 @@ function continuousFT(sampleRate,FT,FFT) {
     }
   }
 
-    // 高速フーリエ変換を実行する関数
-    function fft(data, k) {
-      var n = data.length;
-      var realPart = 0;
-      var imagPart = 0;
-
-      for (var t = 0; t < n; t++) {
-        var angle = (2 * Math.PI * k * t) / n;
-        realPart += data[t][0] * Math.cos(angle);
-        imagPart -= data[t][0] * Math.sin(angle);
-      }
-
-  return { real: realPart, imag: imagPart };
-}
   function continuousFT(sampleRate,FT){
     // 新しいシートを作成して結果を保存
     var outputSheet = spreadsheet.insertSheet("Continuous_Fourier_Result");
