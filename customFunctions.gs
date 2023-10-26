@@ -77,3 +77,18 @@ const integral = function integral(f(x),start, end, r) {
 const free_energy = function free_Energy(T, H, S) {
   return H - (T * S);
 }
+
+// 高速フーリエ変換を実行する関数
+const fft = function fft(data, k) {
+  var n = data.length;
+  var realPart = 0;
+  var imagPart = 0;
+for (var t = 0; t < n; t++) {
+        var angle = (2 * Math.PI * k * t) / n;
+        realPart += data[t][0] * Math.cos(angle);
+        imagPart -= data[t][0] * Math.sin(angle);
+      }
+
+  return { real: realPart, imag: imagPart };
+}
+
