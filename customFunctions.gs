@@ -31,12 +31,12 @@ const rmsv = function RMSV(T,M) {
   return Math.sqrt( 3 * gas_const * T / M );  
 }
 
-const ρ_NTP = function density_NTP(molar_mass) {
+const rho_NTP = function density_NTP(molar_mass) {
   return (molar_mass * atm)/(gas_const * T0);
 }
 
 const mass_wave = function de_Broglie_wave(m,T) {
-  return h_Planck / (m * RMSV(T,m * n_a));
+  return h_Planck / (m * rmsv(T,m * n_a));
 }
 
 const rad = function degToRad(degree) {
@@ -59,8 +59,8 @@ const nernst = function Nernst(C_Inside,C_Outside,ion_valent,K) {
   return (gas_const * K / (ion_valent * Faraday_const)) * Math.log(C_Outside / C_Inside);
 }
 
-const re = function ReynoldsNumber(ρ,v,η,D) {
-  return (ρ * v * D) / η;
+const re = function ReynoldsNumber(rho,v,η,D) {
+  return (rho * v * D) / η;
 }
 
 const sign = function sign(x) {
@@ -82,4 +82,8 @@ const integral = function integral(f(x),start, end, r) {
     r += f(x) * dx;
   }
   return r;
+}
+
+const free_energy = function free_Energy(T, H, S) {
+  return H - (T * S);
 }
