@@ -18,17 +18,6 @@ const imag_unit = [
   [1 , 0]
 ];
 
-//Math_property
-const e = Math.E;
-const ln2 = Math.LN2;
-const ln10 = Math.LN10;
-const log2e = Math.LOG2E;
-const log10e = Math.LOG10E;
-const pi = Math.PI;
-const sqrt1_2 = Math.SQRT1_2;
-const sqrt2 = Math.SQRT2;
-const rand = Math.random();
-
 //FT_reference
 function FT_reference_() {
   var dataRange = sheet.getDataRange();

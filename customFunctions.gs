@@ -52,7 +52,7 @@ const sawtooth = function sawtooth(t) {
 }
 
 const squareWave = function squareWave(t) {
-  return sign(Math.sin(t));
+  return Math.sign(Math.sin(t));
 }
 
 const nernst = function Nernst(C_Inside,C_Outside,ion_valent,K) {
@@ -61,16 +61,6 @@ const nernst = function Nernst(C_Inside,C_Outside,ion_valent,K) {
 
 const re = function ReynoldsNumber(rho,v,η,D) {
   return (rho * v * D) / η;
-}
-
-const sign = function sign(x) {
-  if (x > 0) {
-    return 1;
-  } else if (x < 0) {
-    return -1;
-  } else {
-    return 0;
-  }
 }
 
 const integral = function integral(f(x),start, end, r) {
