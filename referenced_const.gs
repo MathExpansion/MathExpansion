@@ -38,3 +38,7 @@ function FT_reference_() {
 
 //Gaussian integral or Euler Poisson integral [-inf,inf]exp(-x^2)dx
 const gaussian_integral = Math.sqrt(Math.PI);
+
+//infinity
+const inf = Infinity;
+const minus_inf = -Infinity;
