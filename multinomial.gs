@@ -28,12 +28,3 @@ function factorial(n) {
     return n * factorial(n - 1);
   }
 }
-
-// テスト
-function testMULTINOMIAL() {
-  var result = MULTINOMIAL(5, 3, 2);
-  Logger.log("MULTINOMIAL(5, 3, 2) = " + result);
-}
-
-// テストを実行
-testMULTINOMIAL();
