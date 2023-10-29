@@ -1,4 +1,4 @@
-function drawClothoidCurve(a,b,stepSize) {
+function clothoidCurve(a,b,stepSize) {
 
   var data = [['x', 'y']];
 
