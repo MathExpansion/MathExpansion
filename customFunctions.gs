@@ -100,4 +100,16 @@ const fact = function fact(n) {
   }
 }
 
+const youngLaplace = function youngLaplace(radius, gamma, rho_Inside, rho_Outside) {
+  var deltaDensity = rho_Inside - rho_Outside;
+  return ((2 * gamma) / radius) * deltaDensity;
+}
+
+const poissonDist = function poissonDistribution(lambda, x) {
+
+  var numerator = Math.exp(-lambda) * Math.pow(lambda, x);
+  var denominator = fact(x);
+  var probability = numerator / denominator;
+  return probability;
+}
 

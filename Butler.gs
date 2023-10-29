@@ -5,9 +5,6 @@ function ButlerVolmerEquation(T) {
   var standardPotential = 0.1; // 電極の標準電位 (V)
   var alpha = 0.5; // 電極反応の電子移動数
 
-  // バトラーボルマーの式を用いて電流密度を計算
-  var currentDensity = k0 * Math.exp((alpha * Faraday_const * (electrodePotential - standardPotential)) / (gas_const * T));
+return k0 * Math.exp((alpha * Faraday_const * (electrodePotential - standardPotential)) / (gas_const * T));
 }
-
-ButlerVolmerEquation(); // Butler-Volmerの式を計算
 
