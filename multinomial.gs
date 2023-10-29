@@ -8,23 +8,14 @@ function MULTINOMIAL() {
     return "#NUM!"; // エラー処理：合計が非正の場合
   }
 
-  var result = factorial(sum);
+  var result = fact(sum);
 
   for (var i = 0; i < args.length; i++) {
     if (args[i] <= 0) {
       return "#NUM!"; // エラー処理：非正の引数がある場合
     }
-    result /= factorial(args[i]);
+    result /= fact(args[i]);
   }
 
   return result;
-}
-
-// 階乗を計算するユーティリティ関数
-function factorial(n) {
-  if (n === 0 || n === 1) {
-    return 1;
-  } else {
-    return n * factorial(n - 1);
-  }
 }
