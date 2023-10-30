@@ -42,4 +42,5 @@ I feel like everyone does it when they have free time, so I don't think it's oka
 
 # 定数及びカスタム関数リファレンス(Constants and custom functions reference)
 
-$k_b = 1.380649^(-23)^$
+$k_b = 1.380649^{-23}$
+$n_a = 6.02214076^{23}$
