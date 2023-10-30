@@ -1,4 +1,3 @@
-var numRows = FT_reference(numRows);
 var frequency = k * sampleRate / numRows;
 var appendrow = appendRow(["Frequency", "Amplitude", "Phase"]);
 var amplitude = Math.hypot(x,y);

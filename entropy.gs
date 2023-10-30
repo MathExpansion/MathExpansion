@@ -1,4 +1,4 @@
-function calculateMixtureEntropy() {
+function mixtureEntropy() {
   // 各成分の分子数
   var n1 = 100; // 成分1の分子数
   var n2 = 200; // 成分2の分子数
@@ -11,16 +11,11 @@ function calculateMixtureEntropy() {
 
   // エントロピーの計算
   var totalMoles = n1 + n2 + n3;
-  var mixtureEntropy = ((n1 / totalMoles) * entropy1 + (n2 / totalMoles) * entropy2 + (n3 / totalMoles) * entropy3);
-
-  Logger.log("混合物のエントロピー: " + mixtureEntropy + " J/mol*K");
+  return ((n1 / totalMoles) * entropy1 + (n2 / totalMoles) * entropy2 + (n3 / totalMoles) * entropy3);
 }
 
-// エントロピーを計算
-calculateMixtureEntropy();
 
-
-function calculateMixtureEntropy() {
+function mixture_Entropy_array() {
   // 混合物内の成分ごとの情報を指定
   var components = [
     { moles: 0.2, entropy: 100 }, // 成分1
@@ -38,9 +33,5 @@ function calculateMixtureEntropy() {
     // 各成分のエントロピーの重みつき合計を計算
     totalEntropy += moles * entropy;
   }
-
-  Logger.log("混合物のエントロピー: " + totalEntropy + " J/mol*K");
+return totalEntropy;
 }
-
-// エントロピーを計算
-calculateMixtureEntropy();

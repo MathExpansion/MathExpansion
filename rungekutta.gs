@@ -16,22 +16,5 @@ function rungeKuttaMethod(f, y0, t0, tn, h) {
 
     data.push([t, y]);
   }
-
   return data;
-}
-
-function testRungeKuttaMethod() {
-  var f = function(t, y) {
-    return t * y;
-  };
-
-  var y0 = 1;
-  var t0 = 0;
-  var tn = 1;
-  var h = 0.1;
-
-  var data = rungeKuttaMethod(f, y0, t0, tn, h);
-
-  // データの表示
-  sheet.getRange(1, 1, data.length, 2).setValues(data);
 }

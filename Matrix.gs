@@ -182,30 +182,8 @@ function inner_prod(A, B) {
     return tmp;
 }
 
-function main() {
-  // 2つの行列を作成
-  var matrixA = [[1, 2, 3], [4, 5, 6]];
-  var matrixB = [[7, 8], [9, 10], [11, 12]];
+//matrixA = [[1, 2, 3], [4, 5, 6]];
 
-  // 行列の足し算
-  var resultAddition = matrixAddition(matrixA, matrixB);
-
-  // 行列の引き算
-  var resultSubtraction = matrixSubtraction(matrixA, matrixB);
-
-  // 行列の掛け算
-  var resultMultiplication = matrixMultiplication(matrixA, matrixB);
-
-  // 行列の転置
-  var resultTranspose = matrixTranspose(matrixA);
-
-  // 結果をログに表示
-  Logger.log("行列A: " + JSON.stringify(matrixA));
-  Logger.log("行列B: " + JSON.stringify(matrixB));
-  Logger.log("行列の足し算: " + JSON.stringify(resultAddition));
-  Logger.log("行列の引き算: " + JSON.stringify(resultSubtraction));
-  Logger.log("行列の掛け算: " + JSON.stringify(resultMultiplication));
-  Logger.log("行列の転置: " + JSON.stringify(resultTranspose));
 }
 
 // 行列の足し算
@@ -258,6 +236,3 @@ function matrixTranspose(matrix) {
   }
   return result;
 }
-
-// メイン関数を実行
-main();

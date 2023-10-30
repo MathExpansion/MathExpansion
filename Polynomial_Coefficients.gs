@@ -10,9 +10,7 @@ function PolynomialCoefficients(roots) {
         sum += roots[j];
       }
     }
-
     coefficients.push(sum);
   }
-
   return coefficients;
 }
