@@ -1,4 +1,4 @@
-var numRows = FT_reference(numRows);
+var FT_appendRow = outputSheet.appendRow(["Frequency", "Amplitude", "Phase"]);
 var frequency = k * sampleRate / numRows;
 
 function continuousFT(sampleRate,FT,FFT) {
@@ -6,7 +6,6 @@ function continuousFT(sampleRate,FT,FFT) {
   
   // 新しいシートを作成して結果を保存
   var outputSheet = spreadsheet.insertSheet("Continuous_FFT_Result");
-  outputSheet.appendRow(["Frequency", "Amplitude", "Phase"]);
 
     for (var k = 0; k < numRows; k++) {
       

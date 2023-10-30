@@ -4,7 +4,7 @@ function continuousFT(sampleRate) {
   var outputSheet = spreadsheet.insertSheet("Continuous_Fourier_Result");
   outputSheet.appendRow(["Frequency", "Amplitude", "Phase"]);
 
-  var numRows = FT_reference(numRows);
+  var numRows = numRows;
 
   for (var k = 0; k < numRows; k++) {
     // フーリエ変換を計算
