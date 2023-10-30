@@ -2,6 +2,11 @@
 const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
 const sheet = spreadsheet.getActiveSheet();
 
+//getter
+const dataRange = sheet.getDataRange();
+const values = dataRange.getValues();
+const numRows = values.length;
+
 //physical_constants
 const k_b = Math.pow(1.380649,-23);
 const n_a = Math.pow(6.02214076,23);
@@ -17,13 +22,6 @@ const imag_unit = [
   [0 , -1],
   [1 , 0]
 ];
-
-//FT_reference
-function FT_reference_() {
-  var dataRange = sheet.getDataRange();
-  var values = dataRange.getValues();
-  var numRows = values.length;
-}
 
 //Gaussian integral or Euler Poisson integral [-inf,inf]exp(-x^2)dx
 const gaussian_integral = Math.sqrt(Math.PI);
