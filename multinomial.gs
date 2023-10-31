@@ -1,5 +1,4 @@
 function MULTINOMIAL() {
-  var args = Array.prototype.slice.call(arguments); // 引数を配列に変換
   var sum = args.reduce(function(acc, val) {
     return acc + val;
   }, 0); // 引数の合計を計算
