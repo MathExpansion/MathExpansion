@@ -38,3 +38,7 @@ var appendrow = appendRow(["Frequency", "Amplitude", "Phase"]);
 var amplitude = Math.hypot(x,y);
 //var amplitude = Math.sqrt(fftData.real * fftData.real + fftData.imag * fftData.imag);
 var phase = Math.atan2(y,x);
+
+// 引数を配列に変換
+var args = Array.prototype.slice.call(arguments);
+
