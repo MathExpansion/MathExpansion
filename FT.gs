@@ -1,12 +1,6 @@
-var frequency = k * sampleRate / numRows;
-var appendrow = appendRow(["Frequency", "Amplitude", "Phase"]);
-var amplitude = Math.hypot(x,y);
-//var amplitude = Math.sqrt(fftData.real * fftData.real + fftData.imag * fftData.imag);
-var phase = Math.atan2(y,x);
-  
 function FFT(sampleRate) {
   // 新しいシートを作成して結果を保存
-  var outputSheet = spreadsheet.insertSheet("Continuous_FFT_Result").appendrow;
+  var outputSheet = spreadsheet.insertSheet("Continuous_FFT_Result").appendrow();
     for (var k = 0; k < numRows; k++) {
       var fftData = fft(values, k); // データをFFT(高速フーリエ変換)にかける
 
@@ -14,13 +8,13 @@ function FFT(sampleRate) {
       var y = fftData.imag;
       
       // 結果を新しいシートに保存
-      outputSheet;
+      outputSheet([frequency, amplitude, phase]);
     }
   }
 
 function continuousFT(sampleRate) {
     // 新しいシートを作成して結果を保存
-    var outputSheet = spreadsheet.insertSheet("Continuous_Fourier_Result").appendrow;
+    var outputSheet = spreadsheet.insertSheet("Continuous_Fourier_Result").appendrow();
 
     for (var k = 0; k < numRows; k++) {
       // フーリエ変換を計算
@@ -35,6 +29,6 @@ function continuousFT(sampleRate) {
 
       var x = realPart;
       var y = imagPart;
-      outputSheet;
+      outputSheet([frequency, amplitude, phase]);
     }
   }
