@@ -1,6 +1,3 @@
-var FT_appendRow = outputSheet.appendRow(["Frequency", "Amplitude", "Phase"]);
-var frequency = k * sampleRate / numRows;
-
 function continuousFT(sampleRate,FT,FFT) {
   function continuousFT(sampleRate,FFT) {
   

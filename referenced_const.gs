@@ -29,3 +29,7 @@ const gaussian_integral = Math.sqrt(Math.PI);
 //infinity
 const inf = Infinity;
 const minus_inf = -Infinity;
+
+//Fourier_Transform
+var FT_appendRow = outputSheet.appendRow(["Frequency", "Amplitude", "Phase"]);
+var frequency = k * sampleRate / numRows;
