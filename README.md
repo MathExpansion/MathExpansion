@@ -3,6 +3,7 @@ Google Spreadsheetsで数式モデルを実装したりするプロジェクト
 A project that implements a mathematical model with Google Spreadsheets  
 ScriptID =  
 `1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc`  
+[DiscordURL](https://discord.gg/tKj4anHgu8)  
 [日本語ReadMe](docs/README_JA.md)
 
   
