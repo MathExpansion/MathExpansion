@@ -22,12 +22,22 @@ ScriptID =
 [日本語ReadMe](docs/README_JA.md)
   
 # 開発環境(Development environment)
-GithubのブランチとGASの連携をする(Link Github branch with GAS)  
-以下URLを参照(See URL below)  
-- https://pineplanter.moo.jp/non-it-salaryman/2022/12/22/gas-github/  
-sourcetreeがあると楽(It's easier with sourcetree)  
-- https://mteam.jp/column/10210/
+## Gitの管理ツールについて
+基本的にはSourcetreeでもGitBashでも何でもいいです  
+使い慣れている方を使ってください  
   
+### Sourcetree
+- 導入方法
+  - https://mteam.jp/column/10210/
+- DL先
+  - https://www.sourcetreeapp.com/
+
+### GitBash
+- 導入方法
+  - https://www.sejuku.net/blog/72673
+- DL先
+  - https://gitforwindows.org/
+
 # branch
 ## ブランチ運用について
 基本的には `develop` から `feature/{issue番号}` で作ってほしい  
