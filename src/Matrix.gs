@@ -199,8 +199,6 @@ function inner_prod(A, B) {
 
 //matrixA = [[1, 2, 3], [4, 5, 6]];
 
-}
-
 // 行列の足し算
 function matrixAddition(matrixA, matrixB) {
   var result = [];

@@ -15,8 +15,8 @@ limitations under the License.
 */
 function convergence_judgment() {
   function currentvalue(n) { 
-  sheet.getCurrentCell()
-  .offset(n,0).activate().getvalue();
+    sheet.getCurrentCell()
+    .offset(n,0).activate().getvalue();
   }
 
   var value_n = currentvalue(n);
@@ -24,11 +24,12 @@ function convergence_judgment() {
   var zero_quest = value_n + value_n_1 ;
 
   function showDialog() {
-  var html = output_(zero_quest).evaluate().setSandboxMode(HtmlService.SandboxMode.IFRAME)
-             .setWidth(500)
-             .setHeight(300)
-             .setTitle('convergence judgment');
-  spreadsheet.show(html);
+    var html = output_(zero_quest).evaluate().setSandboxMode(HtmlService.SandboxMode.IFRAME)
+      .setWidth(500)
+      .setHeight(300)
+      .setTitle('convergence judgment');
+    spreadsheet.show(html);
+  }
 }
 
 function output_(zero_quest){
