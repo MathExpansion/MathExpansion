@@ -37,6 +37,50 @@ ScriptID =
   - https://www.sejuku.net/blog/72673
 - DL先
   - https://gitforwindows.org/
+    
+## ローカルからGASの環境構築をする
+
+### 前提
+- 当プロジェクトディレクトリ `MathExpansion\MathExpansion` (cloneしたディレクトリ直下) 以下で作業するのを前提とする
+- コマンドプロンプトで `npm`, `node` コマンドが使用できる
+  
+※下記コマンドでバージョンが表示されること  
+```
+Node --version
+npm --version
+```
+表示されない場合は下記手順を参考にインストール
+- https://kinsta.com/jp/blog/how-to-install-node-js/
+  
+### 手順
+基本的には下記サイトを参考にしています
+- https://dev.classmethod.jp/articles/gas-aside/
+
+1. GoogleAppsScriptAPIの有効化
+GoogleAppsScriptAPIの設定画面からAPIを有効化  
+- https://script.google.com/home/usersettings
+  
+2. asideを用いたプロジェクト作成
+下記コマンドをコマンドプロンプトで実行
+```
+$ npx @google/aside init
+```
+
+3. デプロイ環境
+テスト用のスプレッドシートを各自で作成します  
+作成したスプレッドシートからApps Scriptに移動し、プロジェクトの設定から `スクリプト ID`をコピーします  
+
+コピーしたスクリプトIDをclasp-dev.jsonに入力します
+
+```
+{"scriptId":"{ここにスクリプトIDを入力してください}","rootDir":"./src"}
+
+例:
+{"scriptId":"111122223333-4444","rootDir":"./src"}
+```
+
+4. デプロイテスト
+
 
 # branch
 ## ブランチ運用について
