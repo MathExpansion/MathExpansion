@@ -55,33 +55,50 @@ npm --version
 ### 手順
 基本的には下記サイトを参考にしています
 - https://dev.classmethod.jp/articles/gas-aside/
-
+  
+  
 1. GoogleAppsScriptAPIの有効化
 GoogleAppsScriptAPIの設定画面からAPIを有効化  
 - https://script.google.com/home/usersettings
   
+
 2. asideを用いたプロジェクト作成
 下記コマンドをコマンドプロンプトで実行
 ```
 $ npx @google/aside init
 ```
+  
 
 3. デプロイ環境
 テスト用のスプレッドシートを各自で作成します  
 作成したスプレッドシートからApps Scriptに移動し、プロジェクトの設定から `スクリプト ID`をコピーします  
+  
 
-コピーしたスクリプトIDをclasp-dev.jsonに入力します
-
+コピーしたスクリプトIDをclasp-dev.jsonに入力します  
 ```
 {"scriptId":"{ここにスクリプトIDを入力してください}","rootDir":"./src"}
 
 例:
 {"scriptId":"111122223333-4444","rootDir":"./src"}
 ```
+  
 
 4. デプロイテスト
-
-
+下記コマンドで上記で作成したスプレッドシートにデプロイします  
+```
+# 開発環境にデプロイ
+$ npm run deploy
+```
+コマンド実行後、Apps Script にコードが反映されていれば成功です  
+  
+また、下記コマンドはMathExpanisonの共有プロジェクト宛てに設定しています  
+こちらは原則 `develop` ブランチでのみ実行お願いします  
+```
+# 本番環境にデプロイ
+$ npm run deploy:prod
+```
+  
+  
 # branch
 ## ブランチ運用について
 基本的には `develop` から `feature/{issue番号}` で作ってほしい  
