@@ -1,4 +1,19 @@
 /*
+Copyright 2023 MathExpansion
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+/*
 This is a custom function that returns the value of a cycloid.
 Either variable x or y can be omitted.
 @customfunction
@@ -63,16 +78,16 @@ const re = function ReynoldsNumber(rho,v,η,D) {
   return (rho * v * D) / η;
 }
 
-const integral = function integral(f(x),start, end, r) {
-  let dx = 0.00001; 
-  if (start > end) {
-    [start, end] = [end, start];
-  }
-  for (var x = start; x < end; x += dx) {
-    r += f(x) * dx;
-  }
-  return r;
-}
+// const integral = function integral(f(x),start, end, r) {
+//   let dx = 0.00001; 
+//   if (start > end) {
+//     [start, end] = [end, start];
+//   }
+//   for (var x = start; x < end; x += dx) {
+//     r += f(x) * dx;
+//   }
+//   return r;
+// }
 
 const free_energy = function free_Energy(T, H, S) {
   return H - (T * S);
@@ -83,11 +98,12 @@ const fft = function fft(data, k) {
   var n = data.length;
   var realPart = 0;
   var imagPart = 0;
-for (var t = 0; t < n; t++) {
-        var angle = (2 * Math.PI * k * t) / n;
-        realPart += data[t][0] * Math.cos(angle);
-        imagPart -= data[t][0] * Math.sin(angle);
-      }
+
+  for (var t = 0; t < n; t++) {
+    var angle = (2 * Math.PI * k * t) / n;
+    realPart += data[t][0] * Math.cos(angle);
+    imagPart -= data[t][0] * Math.sin(angle);
+  }
 
   return { real: realPart, imag: imagPart };
 }
@@ -118,5 +134,5 @@ function ButlerVolmerEquation(T,E,E_standard) {
   var k0 = Math.pow(10, -3); // 電極反応速度定数 (A/cm^2/mol^m/s)
   var alpha = 0.5; // 電極反応の電子移動数
 
-return k0 * Math.exp((alpha * Faraday_const * ( E - E_standard )) / (gas_const * T));
+  return k0 * Math.exp((alpha * Faraday_const * ( E - E_standard )) / (gas_const * T));
 }
