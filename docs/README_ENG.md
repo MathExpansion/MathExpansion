@@ -15,10 +15,10 @@ limitations under the License.
 -->
 # Overview
 
-A project for implementing formula models in Google Spreadsheets.
+A project for implementing formula models in Google Spreadsheets.  
 Script ID =
-`1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc`
-[Discord URL](https://discord.gg/tKj4anHgu8)
+`1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc`  
+[Discord URL](https://discord.gg/tKj4anHgu8)  
 [Japanese](docs/README_JA.md)
 
 # Development Environment
