@@ -48,7 +48,6 @@ const minus_inf = -Infinity;
 //Fourier_Transform
 var FT_appendRow = outputSheet.appendRow(["Frequency", "Amplitude", "Phase"]);
 var frequency = k * sampleRate / numRows;
-var frequency = k * sampleRate / numRows;
 var appendrow = appendRow(["Frequency", "Amplitude", "Phase"]);
 var amplitude = Math.hypot(x,y);
 //var amplitude = Math.sqrt(fftData.real * fftData.real + fftData.imag * fftData.imag);

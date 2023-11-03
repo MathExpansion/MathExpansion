@@ -29,14 +29,14 @@ function mixtureEntropy() {
   return ((n1 / totalMoles) * entropy1 + (n2 / totalMoles) * entropy2 + (n3 / totalMoles) * entropy3);
 }
 
+// 混合物内の成分ごとの情報を指定
+var components = [
+  { moles: 0.2, entropy: 100 }, // 成分1
+  { moles: 0.3, entropy: 150 }, // 成分2
+  { moles: 0.5, entropy: 200 }, // 成分3
+];
 
 function mixture_Entropy_array() {
-  // 混合物内の成分ごとの情報を指定
-  var components = [
-    { moles: 0.2, entropy: 100 }, // 成分1
-    { moles: 0.3, entropy: 150 }, // 成分2
-    { moles: 0.5, entropy: 200 }, // 成分3
-  ];
 
   // 混合物全体のエントロピーを計算
   var totalEntropy = 0;
