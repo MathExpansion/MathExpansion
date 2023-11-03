@@ -38,5 +38,4 @@ function output_(zero_quest){
   }else{
     return HtmlService.createTemplateFromFile('display_not_convergence');
   }
-
 }

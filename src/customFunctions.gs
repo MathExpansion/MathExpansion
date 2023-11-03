@@ -78,13 +78,14 @@ const re = function ReynoldsNumber(rho,v,η,D) {
   return (rho * v * D) / η;
 }
 
-// const integral = function integral(f(x),start, end, r) {
+// const integral = function integral(fx,start, end, r) {
+  //fxには任意のリテラルカスタム関数を引数として入れてあげる，微小変位させたい引数はテスト時任意に指定する必要有り
 //   let dx = 0.00001; 
 //   if (start > end) {
 //     [start, end] = [end, start];
 //   }
 //   for (var x = start; x < end; x += dx) {
-//     r += f(x) * dx;
+//     r += fx * dx;
 //   }
 //   return r;
 // }
