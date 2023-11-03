@@ -14,19 +14,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 function MULTINOMIAL() {
-  var sum = args.reduce(function(acc, val) {
+  const sum = args.reduce((acc, val) => {
     return acc + val;
   }, 0); // 引数の合計を計算
 
   if (sum <= 0) {
-    return "#NUM!"; // エラー処理：合計が非正の場合
+    return '#NUM!'; // エラー処理：合計が非正の場合
   }
 
-  var result = fact(sum);
+  let result = fact(sum);
 
-  for (var i = 0; i < args.length; i++) {
+  for (let i = 0; i < args.length; i++) {
     if (args[i] <= 0) {
-      return "#NUM!"; // エラー処理：非正の引数がある場合
+      return '#NUM!'; // エラー処理：非正の引数がある場合
     }
     result /= fact(args[i]);
   }

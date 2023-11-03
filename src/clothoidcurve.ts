@@ -13,13 +13,12 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function clothoidCurve(a,b,stepSize) {
+function clothoidCurve(a, b, stepSize) {
+  const data = [['x', 'y']];
 
-  var data = [['x', 'y']];
-
-  for (var t = 0; t <= a * Math.sqrt(b); t += stepSize) {
-    var x = Math.cos((a * t * t) / 2);
-    var y = Math.sin((a * t * t) / 2);
+  for (let t = 0; t <= a * Math.sqrt(b); t += stepSize) {
+    const x = Math.cos((a * t * t) / 2);
+    const y = Math.sin((a * t * t) / 2);
     data.push([x, y]);
   }
 

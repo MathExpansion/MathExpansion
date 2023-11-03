@@ -14,8 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 function onOpen() {
-  spreadsheet
-    .addMenu('Math_expansion', [
-      {name: 'convergence judgment', functionName: 'convergence_judgment'},
-    ]);
+  spreadsheet.addMenu('Math_expansion', [
+    { name: 'convergence judgment', functionName: 'convergence_judgment' },
+  ]);
 }

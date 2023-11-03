@@ -13,9 +13,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function Lorenz_eq(x0,y0,z0,sigma,rho,beta,stepsize,t) {
-  var lorenz = [[x0],[y0],[z0]];
-  for (var i =1; i < t; i++) {
+function Lorenz_eq(x0, y0, z0, sigma, rho, beta, stepsize, t) {
+  const lorenz = [[x0], [y0], [z0]];
+  for (let i = 1; i < t; i++) {
     x_next = lorenz[0];
     y_next = lorenz[1];
     z_next = lorenz[2];
@@ -24,6 +24,6 @@ function Lorenz_eq(x0,y0,z0,sigma,rho,beta,stepsize,t) {
     // var z_next.map((z0) => ( x0 * y0 - beta * z0) * stepsize);
     // let sheet.getRange(i,3,i,3).activate();
     sheet.getActiveRangeList().setValue(lorenz);
-    lorenz.push(x_next,y_next,z_next);
+    lorenz.push(x_next, y_next, z_next);
   }
 }

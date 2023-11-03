@@ -14,33 +14,34 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 function simulateWienerProcess(n) {
-  var wienerProcess = [0]; // 初期値
-  for (var i = 1; i < n; i++) {
-    var randomValue = Math.random() * 2 - 1; // -1から1までの一様乱数
-    var nextValue = wienerProcess[i-1] + randomValue;
-    let rangeactivate = sheet_Wiener.getRange(i,2,1).activate();
+  const wienerProcess = [0]; // 初期値
+  for (let i = 1; i < n; i++) {
+    const randomValue = Math.random() * 2 - 1; // -1から1までの一様乱数
+    const nextValue = wienerProcess[i - 1] + randomValue;
+    const rangeactivate = sheet_Wiener.getRange(i, 2, 1).activate();
     sheet_Wiener.getActiveRangeList().setValue(nextValue);
     wienerProcess.push(nextValue);
   }
-  
+
   return wienerProcess;
 }
 
 // ウィーナー過程のシミュレーション
-var wienerProcess = simulateWienerProcess(n_Wiener);
+const wienerProcess = simulateWienerProcess(n_Wiener);
 
 // 結果を別のシートに出力
-  let sheet_Wiener = spreadsheet.getSheetByName("Wiener_Result"); // 結果を出力するシートの名前を指定
-  if (!outputSheet) {
-    sheet_Wiener = spreadsheet.insertSheet("Wiener_Result");
-  }
+let sheet_Wiener = spreadsheet.getSheetByName('Wiener_Result'); // 結果を出力するシートの名前を指定
+if (!outputSheet) {
+  sheet_Wiener = spreadsheet.insertSheet('Wiener_Result');
+}
 
-  sheet_Wiener.getRange('A1').activate();
-  sheet_Wiener.getCurrentCell().setFormula('=SEQUENCE("'+n_Wiener+'",1,0,1)');
-const sheetgetrange1 = sheet_Wiener.getRange(1,1,n_Wiener).activate();
-const sheetgetrange2 = sheet_Wiener.getRange(1,2,n_Wiener).activate();
+sheet_Wiener.getRange('A1').activate();
+sheet_Wiener.getCurrentCell().setFormula('=SEQUENCE("' + n_Wiener + '",1,0,1)');
+const sheetgetrange1 = sheet_Wiener.getRange(1, 1, n_Wiener).activate();
+const sheetgetrange2 = sheet_Wiener.getRange(1, 2, n_Wiener).activate();
 
-var chart_Wiener = sheet_Wiener.newChart()
+const chart_Wiener = sheet_Wiener
+  .newChart()
   .asLineChart()
   .addRange(sheetgetrange1)
   .addRange(sheetgetrange2)
@@ -52,4 +53,4 @@ var chart_Wiener = sheet_Wiener.newChart()
   .setOption('isStacked', 'false')
   .setPosition(285, 3, 17, 16)
   .build();
-  sheet_Wiener.insertChart(chart_Wiener);
+sheet_Wiener.insertChart(chart_Wiener);
