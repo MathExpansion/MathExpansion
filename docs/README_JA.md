@@ -16,9 +16,9 @@ limitations under the License.
 # 概要
 
 Google Spreadsheetsで数式モデルを実装したりするプロジェクト  
-![ME2](img/ME2.png)  
-![ME3](img/ME3.png)  
-![ME6](img/ME6.png)  
+![ME2](img/ME2.jpg)  
+![ME3](img/ME3.jpg)  
+![ME6](img/ME6.jpg)  
   
 ScriptID =  
 `1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc`  
