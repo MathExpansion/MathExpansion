@@ -78,6 +78,7 @@ GoogleAppsScriptAPIの設定画面からAPIを有効化
 - <https://script.google.com/home/usersettings>
   
 #### デプロイ環境
+
 テスト用のスプレッドシートを各自で作成します  
 作成したスプレッドシートからApps Scriptに移動し、プロジェクトの設定から `スクリプト ID`をコピーします  
   
@@ -91,6 +92,7 @@ GoogleAppsScriptAPIの設定画面からAPIを有効化
 ```
   
 #### デプロイテスト
+
 下記コマンドで上記で作成したスプレッドシートにデプロイします  
 
 ```
