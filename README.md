@@ -60,6 +60,11 @@ npm --version
 
 - <https://kinsta.com/jp/blog/how-to-install-node-js/>
   
+上記インストール確認できたら、下記コマンドでclaspをインストール  
+```
+npm install -g @google/clasp
+```
+  
 ### 手順
   
 基本的には下記サイトを参考にしています
@@ -71,14 +76,6 @@ npm --version
 GoogleAppsScriptAPIの設定画面からAPIを有効化  
 
 - <https://script.google.com/home/usersettings>
-
-#### asideを用いたプロジェクト作成
-
-下記コマンドをコマンドプロンプトで実行
-
-```
-npx @google/aside init
-```
   
 #### デプロイ環境
 テスト用のスプレッドシートを各自で作成します  
