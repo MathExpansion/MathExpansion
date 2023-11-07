@@ -29,6 +29,7 @@ function weibull_fitting() {
       return 0; //配置変更なし
     }
   }
+
   const n = sheetrange.length;
   if (n > 30) {
     const i_03 = sheetrange

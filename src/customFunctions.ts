@@ -28,10 +28,10 @@ const cycloid = function cycloid(r: number, theta: number, x: any, y: number) {
 };
 
 const entropy_kB = function Entropy_kB(
-  number_of_particles_a: any,
-  number_of_particles_b: any
+  number_of_particles_a: number,
+  number_of_particles_b: number
 ) {
-  return k_b * Math.log();
+  //return k_b * Math.log();
 };
 
 const lengevin = (x: number) => {
@@ -45,23 +45,23 @@ Returns the root mean square velocity, which is the velocity of the molecule.
 @customfunction
 */
 
-const rmsv = function RMSV(T: number, M: number) {
+const rmsv = (T: number, M: number) => {
   return Math.sqrt((3 * gas_const * T) / M);
 };
 
-const rho_NTP = function density_NTP(molar_mass: number) {
+const rho_NTP = (molar_mass: number) => {
   return (molar_mass * atm) / (gas_const * T0);
 };
 
-const mass_wave = function de_Broglie_wave(m: number, T: number) {
+const mass_wave = (m: number, T: number) => {
   return h_Planck / (m * rmsv(T, m * n_a));
 };
 
-const rad = function degToRad(degree: number) {
+const rad = (degree: number) => {
   return degree * (Math.PI / 180);
 };
 
-const deg = function radToDeg(radian: number) {
+const deg = (radian: number) => {
   return radian / (Math.PI / 180);
 };
 
@@ -73,9 +73,10 @@ const squareWave = (t: number) => {
    Math.sign(Math.sin(t));
 };
 
-const nernst = function Nernst(C_Inside: number, C_Outside: number, ion_valent: number, K: number) {
+const nernst = (C_Inside: number, C_Outside: number, ion_valent: number, K: number) => {
   return (
-    ((gas_const * K) / (ion_valent * Faraday_const)) *
+    ((gas_const * K) / (ion_valent * Faraday_const)) 
+    *
     Math.log(C_Outside / C_Inside)
   );
 };
@@ -96,7 +97,7 @@ const re = function ReynoldsNumber(rho: number, v: number, η: number, D: number
 //   return r;
 // }
 
-const free_energy = function free_Energy(T: number, H: number, S: number) {
+const free_energy = (T: number, H: number, S: number) => {
   return H - T * S;
 };
 
@@ -123,14 +124,13 @@ const fact = function fact(n: number) {
   }
 };
 
-const youngLaplace = function youngLaplace(
+const youngLaplace = (
   radius: number,
   gamma: number,
   rho_Inside: number,
   rho_Outside: number
-) {
-  const deltaDensity = rho_Inside - rho_Outside;
-  return ((2 * gamma) / radius) * deltaDensity;
+) => {
+   ((2 * gamma) / radius) * (rho_Inside - rho_Outside);
 };
 
 const poissonDist = function poissonDistribution(lambda: number, x: number) {
