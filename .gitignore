@@ -1,3 +1,6 @@
 node_modules
-build
-dist
+dist/
+build/
+.DS_Store
+.clasp*.json
+*.tgz
