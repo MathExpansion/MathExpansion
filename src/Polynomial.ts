@@ -13,9 +13,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function PolynomialValue(degree, coefficients, x) {
+function PolynomialValue(degree: number, coefficients: string | any[], x: number) {
   if (degree + 1 !== coefficients.length) {
-    Logger.log('係数の数が次数に対して正しくありません。');
     return null;
   }
 
@@ -28,7 +27,7 @@ function PolynomialValue(degree, coefficients, x) {
   return result;
 }
 
-function PolynomialCoefficients(roots) {
+function PolynomialCoefficients(roots: string | any[]) {
   const coefficients = [];
   const degree = roots.length;
 

@@ -19,7 +19,7 @@ Either variable x or y can be omitted.
 @customfunction
 @param r radius theta theta x x y y
 */
-const cycloid = function cycloid(r, theta, x, y) {
+const cycloid = function cycloid(r: number, theta: number, x: any, y: number) {
   if ((x = undefined)) {
     return r * (1 - Math.cos(theta));
   } else {
@@ -28,14 +28,14 @@ const cycloid = function cycloid(r, theta, x, y) {
 };
 
 const entropy_kB = function Entropy_kB(
-  number_of_particles_a,
-  number_of_particles_b
+  number_of_particles_a: any,
+  number_of_particles_b: any
 ) {
   return k_b * Math.log();
 };
 
-const lengevin = function Lengevin(x) {
-  return 1 / Math.tanh(x) - 1 / x;
+const lengevin = (x: number) => {
+   1 / Math.tanh(x) - 1 / x;
 };
 
 /*
@@ -45,42 +45,42 @@ Returns the root mean square velocity, which is the velocity of the molecule.
 @customfunction
 */
 
-const rmsv = function RMSV(T, M) {
+const rmsv = function RMSV(T: number, M: number) {
   return Math.sqrt((3 * gas_const * T) / M);
 };
 
-const rho_NTP = function density_NTP(molar_mass) {
+const rho_NTP = function density_NTP(molar_mass: number) {
   return (molar_mass * atm) / (gas_const * T0);
 };
 
-const mass_wave = function de_Broglie_wave(m, T) {
+const mass_wave = function de_Broglie_wave(m: number, T: number) {
   return h_Planck / (m * rmsv(T, m * n_a));
 };
 
-const rad = function degToRad(degree) {
+const rad = function degToRad(degree: number) {
   return degree * (Math.PI / 180);
 };
 
-const deg = function radToDeg(radian) {
+const deg = function radToDeg(radian: number) {
   return radian / (Math.PI / 180);
 };
 
-const sawtooth = function sawtooth(t) {
-  return t - Math.floor(t);
+const sawtooth = (t: number) => {
+   t - Math.floor(t);
 };
 
-const squareWave = function squareWave(t) {
-  return Math.sign(Math.sin(t));
+const squareWave = (t: number) => {
+   Math.sign(Math.sin(t));
 };
 
-const nernst = function Nernst(C_Inside, C_Outside, ion_valent, K) {
+const nernst = function Nernst(C_Inside: number, C_Outside: number, ion_valent: number, K: number) {
   return (
     ((gas_const * K) / (ion_valent * Faraday_const)) *
     Math.log(C_Outside / C_Inside)
   );
 };
 
-const re = function ReynoldsNumber(rho, v, η, D) {
+const re = function ReynoldsNumber(rho: number, v: number, η: number, D: number) {
   return (rho * v * D) / η;
 };
 
@@ -96,12 +96,12 @@ const re = function ReynoldsNumber(rho, v, η, D) {
 //   return r;
 // }
 
-const free_energy = function free_Energy(T, H, S) {
+const free_energy = function free_Energy(T: number, H: number, S: number) {
   return H - T * S;
 };
 
 // 高速フーリエ変換を実行する関数
-const fft = function fft(data, k) {
+const fft = function fft(data: string | any[], k: number) {
   const n = data.length;
   let realPart = 0;
   let imagPart = 0;
@@ -115,7 +115,7 @@ const fft = function fft(data, k) {
   return { real: realPart, imag: imagPart };
 };
 
-const fact = function fact(n) {
+const fact = function fact(n: number) {
   if (n === 0 || n === 1) {
     return 1;
   } else {
@@ -124,23 +124,23 @@ const fact = function fact(n) {
 };
 
 const youngLaplace = function youngLaplace(
-  radius,
-  gamma,
-  rho_Inside,
-  rho_Outside
+  radius: number,
+  gamma: number,
+  rho_Inside: number,
+  rho_Outside: number
 ) {
   const deltaDensity = rho_Inside - rho_Outside;
   return ((2 * gamma) / radius) * deltaDensity;
 };
 
-const poissonDist = function poissonDistribution(lambda, x) {
+const poissonDist = function poissonDistribution(lambda: number, x: number) {
   const numerator = Math.exp(-lambda) * Math.pow(lambda, x);
   const denominator = fact(x);
   const probability = numerator / denominator;
   return probability;
 };
 
-function ButlerVolmerEquation(T, E, E_standard) {
+function ButlerVolmerEquation(T: number, E: number, E_standard: number) {
   const k0 = Math.pow(10, -3); // 電極反応速度定数 (A/cm^2/mol^m/s)
   const alpha = 0.5; // 電極反応の電子移動数
 

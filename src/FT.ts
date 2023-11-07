@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function FFT(sampleRate) {
+function FFT(sampleRate: any) {
   const outputSheet = spreadsheet
     .insertSheet('Continuous_FFT_Result')
     .appendrow(); // 新しいシートを作成して結果を保存
@@ -27,7 +27,7 @@ function FFT(sampleRate) {
   }
 }
 
-function continuousFT(sampleRate) {
+function continuousFT(sampleRate: any) {
   const outputSheet = spreadsheet
     .insertSheet('Continuous_Fourier_Result')
     .appendrow();
