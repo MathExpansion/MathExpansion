@@ -14,12 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 function clothoidCurve(a: number, b: number, stepSize: number) {
-  const data = [[x, y]];
+  let data = [[, ]];
 
   for (let t = 0; t <= a * Math.sqrt(b); t += stepSize) {
-    const x = Math.cos((a * t * t) / 2);
-    const y = Math.sin((a * t * t) / 2);
-    data.push([x, y]);
+    let x = Math.cos((a * t * t) / 2);
+    let y = Math.sin((a * t * t) / 2);
+    data.push([, ]);
   }
 
   sheet.getRange(1, 1, data.length, data[0].length).setValues(data);
