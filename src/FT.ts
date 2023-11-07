@@ -14,13 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-const frequency = (k * sampleRate) / numRows;
 const appendrow = appendRow(['Frequency', 'Amplitude', 'Phase']);
 const amplitude = Math.hypot(x, y);
 //var amplitude = Math.sqrt(fftData.real * fftData.real + fftData.imag * fftData.imag);
 const phase = Math.atan2(y, x);
 
-function FFT(sampleRate: any) {
+function FFT(sampleRate: number) {
   const outputSheet = spreadsheet
     .insertSheet('Continuous_FFT_Result')
     .appendrow(); // 新しいシートを作成して結果を保存
@@ -34,7 +33,7 @@ function FFT(sampleRate: any) {
   }
 }
 
-function continuousFT(sampleRate: any) {
+function continuousFT(sampleRate: number) {
   const outputSheet = spreadsheet
     .insertSheet('Continuous_Fourier_Result')
     .appendrow();
@@ -52,6 +51,7 @@ function continuousFT(sampleRate: any) {
 
     const x = realPart;
     const y = imagPart;
+    const frequency = (k * sampleRate) / numRows;
     outputSheet([frequency, amplitude, phase]);
   }
 }

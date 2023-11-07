@@ -16,9 +16,9 @@ limitations under the License.
 # 概要
 
 Google Spreadsheetsで数式モデルを実装したりするプロジェクト  
-![ME2](img/ME2.jpg)  
-![ME3](img/ME3.jpg)  
-![ME6](img/ME6.jpg)  
+![ME2](https://github.com/MathExpansion/.github/blob/4d0ccc5de39c9073c9ae9574f45bdbe19954abe4/img/ME2.jpg)  
+![ME3](https://github.com/MathExpansion/.github/blob/4d0ccc5de39c9073c9ae9574f45bdbe19954abe4/img/ME3.jpg)  
+![ME6](https://github.com/MathExpansion/.github/blob/4d0ccc5de39c9073c9ae9574f45bdbe19954abe4/img/ME6.jpg)  
   
 ScriptID =  
 `1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc`  
@@ -45,6 +45,8 @@ ScriptID =
   - <https://www.sejuku.net/blog/72673>
 - DL先
   - <https://gitforwindows.org/>
+
+### エラーチェックについて
 
 ## ローカルからGASの環境構築をする
 
