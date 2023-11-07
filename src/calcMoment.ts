@@ -23,8 +23,8 @@ const vectors = [
 function moment() {
   let totalmoment = 0;
   for (let i = 0; i < vectors.length; i++) {
-    const force = vectors[i].force;
-    const position = vectors[i].position;
+    let force = vectors[i].force;
+    let position = vectors[i].position;
 
     // 各ベクトルの重みつき合計(つまりモーメント)を計算
     totalmoment += force * position;
