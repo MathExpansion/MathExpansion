@@ -13,23 +13,17 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function rungeKuttaMethod(f, y0, t0, tn, h) {
-  var t = t0;
-  var y = y0;
-
-  var data = [];
-  data.push([t, y]);
-
-  while (t < tn) {
-    var k1 = h * f(t, y);
-    var k2 = h * f(t + h/2, y + k1/2);
-    var k3 = h * f(t + h/2, y + k2/2);
-    var k4 = h * f(t + h, y + k3);
-
-    y = y + (k1 + 2*k2 + 2*k3 + k4)/6;
-    t = t + h;
-
-    data.push([t, y]);
+function Lorenz_eq(x0, y0, z0, sigma, rho, beta, stepsize, t) {
+  const lorenz = [[x0], [y0], [z0]];
+  for (let i = 1; i < t; i++) {
+    x_next = lorenz[0];
+    y_next = lorenz[1];
+    z_next = lorenz[2];
+    // var x_next.map((x0) => ( sigma * (y0 - x0) ) * stepsize);
+    // var y_next.map((y0) => ( x0 * (rho - z0) - y0 ) * stepsize);
+    // var z_next.map((z0) => ( x0 * y0 - beta * z0) * stepsize);
+    // let sheet.getRange(i,3,i,3).activate();
+    sheet.getActiveRangeList().setValue(lorenz);
+    lorenz.push(x_next, y_next, z_next);
   }
-  return data;
 }

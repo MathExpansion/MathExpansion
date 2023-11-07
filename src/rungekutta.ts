@@ -13,9 +13,23 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function onOpen() {
-  spreadsheet
-    .addMenu('Math_expansion', [
-      {name: 'convergence judgment', functionName: 'convergence_judgment'},
-    ]);
+function rungeKuttaMethod(f, y0, t0, tn, h) {
+  let t = t0;
+  let y = y0;
+
+  const data = [];
+  data.push([t, y]);
+
+  while (t < tn) {
+    const k1 = h * f(t, y);
+    const k2 = h * f(t + h / 2, y + k1 / 2);
+    const k3 = h * f(t + h / 2, y + k2 / 2);
+    const k4 = h * f(t + h, y + k3);
+
+    y = y + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+    t = t + h;
+
+    data.push([t, y]);
+  }
+  return data;
 }

@@ -13,15 +13,23 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function clothoidCurve(a,b,stepSize) {
+function MULTINOMIAL() {
+  const sum = args.reduce((acc, val) => {
+    return acc + val;
+  }, 0); // 引数の合計を計算
 
-  var data = [['x', 'y']];
-
-  for (var t = 0; t <= a * Math.sqrt(b); t += stepSize) {
-    var x = Math.cos((a * t * t) / 2);
-    var y = Math.sin((a * t * t) / 2);
-    data.push([x, y]);
+  if (sum <= 0) {
+    return '#NUM!'; // エラー処理：合計が非正の場合
   }
 
-  sheet.getRange(1, 1, data.length, data[0].length).setValues(data);
+  let result = fact(sum);
+
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] <= 0) {
+      return '#NUM!'; // エラー処理：非正の引数がある場合
+    }
+    result /= fact(args[i]);
+  }
+
+  return result;
 }

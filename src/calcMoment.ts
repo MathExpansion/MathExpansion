@@ -14,35 +14,35 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-var vectors = [
+const vectors = [
   { force: 0.2, position: 100 }, // 成分1
   { force: 0.3, position: 150 }, // 成分2
   { force: 0.5, position: 200 }, // 成分3
 ];
 
 function moment() {
-  var totalmoment = 0;
-  for (var i = 0; i < vectors.length; i++) {
-    var force = vectors[i].force;
-    var position = vectors[i].position;
+  let totalmoment = 0;
+  for (let i = 0; i < vectors.length; i++) {
+    const force = vectors[i].force;
+    const position = vectors[i].position;
 
     // 各ベクトルの重みつき合計(つまりモーメント)を計算
     totalmoment += force * position;
   }
-return totalmoment;
+  return totalmoment;
 
-// 力の情報
-//var force1 = 10; // 力1 (N)
-//var force2 = 20; // 力2 (N)
+  // 力の情報
+  //var force1 = 10; // 力1 (N)
+  //var force2 = 20; // 力2 (N)
 
-// 力の位置情報
-//var position1 = 2; // 力1の位置 (m)
-//var position2 = 5; // 力2の位置 (m)
+  // 力の位置情報
+  //var position1 = 2; // 力1の位置 (m)
+  //var position2 = 5; // 力2の位置 (m)
 
-// モーメント計算
-//var moment1 = force1 * position1;
-//var moment2 = force2 * position2;
+  // モーメント計算
+  //var moment1 = force1 * position1;
+  //var moment2 = force2 * position2;
 
-// 総モーメント計算
-//return moment1 + moment2;
+  // 総モーメント計算
+  //return moment1 + moment2;
 }

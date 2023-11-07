@@ -13,23 +13,19 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function MULTINOMIAL() {
-  var sum = args.reduce(function(acc, val) {
-    return acc + val;
-  }, 0); // 引数の合計を計算
+function piecewise_quadrature(n, k, stepSize, callbackFn) {
+  const map = minute_interval_(n, stepSize, k).map(callbackFn);
+  const reduce = map.reduce(
+    (previousValue, currentValue) => previousValue + currentValue
+  );
+  return reduce;
+}
 
-  if (sum <= 0) {
-    return "#NUM!"; // エラー処理：合計が非正の場合
+function minute_interval_(n, stepSize, k) {
+  const arr = [n];
+  for (let x = 0; x <= k; k++) {
+    arr.push(n + stepSize);
   }
-
-  var result = fact(sum);
-
-  for (var i = 0; i < args.length; i++) {
-    if (args[i] <= 0) {
-      return "#NUM!"; // エラー処理：非正の引数がある場合
-    }
-    result /= fact(args[i]);
-  }
-
-  return result;
+  console.log(stepSize * arr.length); //代入してチェックする用の値
+  return arr;
 }
