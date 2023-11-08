@@ -14,7 +14,7 @@
     "test": "jest test/ --passWithNoTests --detectOpenHandles",
     "deploy": "npm run lint && npm run test && npm run build && ncp .clasp-dev.json .clasp.json && clasp push -f",
     "deploy:prod": "npm run lint && npm run test && npm run build && ncp .clasp-prod.json .clasp.json && clasp push",
-    "typeCheck": "tsc --noEmit"
+    "typeCheck": "tsc --noEmit" //feature/repair
   },
   "engines": {
     "node": ">=12"
