@@ -15,7 +15,7 @@ limitations under the License.
 -->
 # 概要
 
-Google Spreadsheetsで数式モデルを実装したりするプロジェクト   
+
   
 ScriptID =  
 `1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc`  
