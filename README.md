@@ -60,11 +60,17 @@ npm --version
 
 - <https://kinsta.com/jp/blog/how-to-install-node-js/>
   
+上記インストール確認できたら、下記コマンドでclaspをインストール  
+```
+npm install -g @google/clasp
+```
+  
 ### 手順
   
 基本的には下記サイトを参考にしています
 
 - <https://dev.classmethod.jp/articles/gas-aside/>
+- <https://yoheikikuta.github.io/GAS_local_development_env/>
   
 #### GoogleAppsScriptAPIの有効化  
 
@@ -72,28 +78,34 @@ GoogleAppsScriptAPIの設定画面からAPIを有効化
 
 - <https://script.google.com/home/usersettings>
 
-#### asideを用いたプロジェクト作成
-
-下記コマンドをコマンドプロンプトで実行
-
+#### tsファイルをgsにコンパイル
+`./src` 以下で作成したファイルを `.gs` に変換（コンパイル）します  
+下記コマンドで変換  
 ```
-npx @google/aside init
+npx tsc
 ```
+
+変換されたファイルは `.dist` 以下に格納されます  
+※ `.dist` 以下は ignore に指定しているので、gitにpushしないでください
   
 #### デプロイ環境
+
 テスト用のスプレッドシートを各自で作成します  
-作成したスプレッドシートからApps Scriptに移動し、プロジェクトの設定から `スクリプト ID`をコピーします  
+作成したスプレッドシートから Apps Script に移動し、プロジェクトの設定から `スクリプト ID` をコピーします  
   
-コピーしたスクリプトIDをclasp-dev.jsonに入力します  
+コピーしたスクリプトIDを `clasp-dev.json` に入力します  
 
 ```
-{"scriptId":"{ここにスクリプトIDを入力してください}","rootDir":"./src"}
+{"scriptId":"{ここにスクリプトIDを入力してください}","rootDir":"./dist"}
 
 例:
-{"scriptId":"111122223333-4444","rootDir":"./src"}
+{"scriptId":"111122223333-4444","rootDir":"./dist"}
 ```
   
+`"rootDir":"./dist"` はデプロイ対象を `./dist` 以下にする設定になります
+
 #### デプロイテスト
+
 下記コマンドで上記で作成したスプレッドシートにデプロイします  
 
 ```
@@ -128,7 +140,7 @@ $ npm run deploy:prod
 `#{issue番号} 内容` のようなメッセージにしてもらえると、issueとの紐づけができるのでありがたい  
 例: `#1 ReadMe更新`  
   
-# その他(others)
+# その他
 
 手が空いた時に各々がやる感じなので、そこまで使命感みたいなのは持たなくて大丈夫だと思っている  
   

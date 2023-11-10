@@ -14,17 +14,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 function convergence_judgment() {
-  function currentvalue(n) { 
-    sheet.getCurrentCell()
-    .offset(n,0).activate().getvalue();
+  function currentvalue(n: number) {
+    sheet.getCurrentCell().offset(n, 0).activate().getvalue();
   }
 
-  var value_n = currentvalue(n);
-  var value_n_1 = currentvalue(n-1);
-  var zero_quest = value_n + value_n_1 ;
+  const value_n = currentvalue(n);
+  const value_n_1 = currentvalue(n - 1);
+  const zero_quest = value_n + value_n_1;
 
   function showDialog() {
-    var html = output_(zero_quest).evaluate().setSandboxMode(HtmlService.SandboxMode.IFRAME)
+    const html = output_(zero_quest)
+      .evaluate()
+      .setSandboxMode(HtmlService.SandboxMode.IFRAME)
       .setWidth(500)
       .setHeight(300)
       .setTitle('convergence judgment');
@@ -32,10 +33,10 @@ function convergence_judgment() {
   }
 }
 
-function output_(zero_quest){
-  if(zero_quest <= 0.00){
+function output_(zero_quest: number) {
+  if (zero_quest <= 0.0) {
     return HtmlService.createTemplateFromFile('display_convergence');
-  }else{
+  } else {
     return HtmlService.createTemplateFromFile('display_not_convergence');
   }
 }
