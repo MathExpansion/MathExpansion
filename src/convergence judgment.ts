@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 function convergence_judgment() {
-  function currentvalue(n) {
+  function currentvalue(n: number) {
     sheet.getCurrentCell().offset(n, 0).activate().getvalue();
   }
 
@@ -33,7 +33,7 @@ function convergence_judgment() {
   }
 }
 
-function output_(zero_quest) {
+function output_(zero_quest: number) {
   if (zero_quest <= 0.0) {
     return HtmlService.createTemplateFromFile('display_convergence');
   } else {

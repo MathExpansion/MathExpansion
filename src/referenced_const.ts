@@ -46,12 +46,7 @@ const inf = Infinity;
 const minus_inf = -Infinity;
 
 //Fourier_Transform
-const FT_appendRow = outputSheet.appendRow(['Frequency', 'Amplitude', 'Phase']);
-const frequency = (k * sampleRate) / numRows;
-const appendrow = appendRow(['Frequency', 'Amplitude', 'Phase']);
-const amplitude = Math.hypot(x, y);
-//var amplitude = Math.sqrt(fftData.real * fftData.real + fftData.imag * fftData.imag);
-const phase = Math.atan2(y, x);
+
 
 // 引数を配列に変換
 const args = Array.prototype.slice.call(arguments);
