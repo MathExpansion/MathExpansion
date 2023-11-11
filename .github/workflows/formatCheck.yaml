@@ -1,0 +1,25 @@
+name: formatCheck
+on:
+  pull_request:
+    paths:
+      - /**/*
+    types: [synchronize, opened, reopened, ready_for_review]
+
+jobs:
+  typeCheck:
+    name: front-typeCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: using node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20.9.0
+
+      - name: module install
+        shell: bash
+        run: npm ci
+
+      - name: run format check
+        run: npm run format:check
