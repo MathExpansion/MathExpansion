@@ -13,6 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+
 # Overview
 
 A project for implementing formula models in Google Spreadsheets.  
@@ -51,10 +52,12 @@ You can use Sourcetree, GitBash, or any Git management tool you are comfortable 
 - You should be able to use `npm` and `node` commands in the Command Prompt.
 
   Ensure that the following commands display their respective versions:
+
 ```
 Node --version
 npm --version
 ```
+
 If they don't, you can refer to the following instructions to install them:
 
 - [https://kinsta.com/jp/blog/how-to-install-node-js/](https://kinsta.com/jp/blog/how-to-install-node-js/)
@@ -73,7 +76,8 @@ Enable the Google Apps Script API from the settings page:
 
 #### Creating a Project Using `aside`
 
-Run the following command in the Command Prompt:  
+Run the following command in the Command Prompt:
+
 ```
 npx @google/aside init
 ```
@@ -83,6 +87,7 @@ npx @google/aside init
 Each individual will create their own test Google Sheets document. After creating the Google Sheets document, go to Apps Script and copy the `Script ID` from the project settings.
 
 Input the copied Script ID into `clasp-dev.json` as follows:
+
 ```
 {"scriptId":"{Paste Script ID Here}","rootDir":"./src"}
 
@@ -93,6 +98,7 @@ Example:
 #### Deployment Testing
 
 Deploy to the Google Sheets document created earlier using the following command:
+
 ```
 $ npm run deploy
 ```
@@ -100,6 +106,7 @@ $ npm run deploy
 If the code is reflected in Apps Script after running the command, the deployment was successful.
 
 The following command is intended for shared projects related to MathExpansion and should generally be executed only on the `develop` branch:
+
 ```
 $ npm run deploy:prod
 ```
@@ -126,4 +133,4 @@ We don't expect a strong sense of duty or commitment, but feel free to work on t
 
 $k_b = 1.380649^{-23}$  
 $n_a = 6.02214076^{23}$  
-$h = 6.62607015^{-34}$  
+$h = 6.62607015^{-34}$
