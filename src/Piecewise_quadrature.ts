@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function piecewise_quadrature(n, k, stepSize, callbackFn) {
+function piecewise_quadrature(n: number, k: number, stepSize: number, callbackFn: (value: number, index: number, array: any[]) => number) {
   const map = minute_interval_(n, stepSize, k).map(callbackFn);
   const reduce = map.reduce(
     (previousValue, currentValue) => previousValue + currentValue
@@ -21,11 +21,10 @@ function piecewise_quadrature(n, k, stepSize, callbackFn) {
   return reduce;
 }
 
-function minute_interval_(n, stepSize, k) {
+function minute_interval_(n: number, stepSize: number, k: number) {
   const arr = [n];
   for (let x = 0; x <= k; k++) {
     arr.push(n + stepSize);
   }
-  console.log(stepSize * arr.length); //代入してチェックする用の値
   return arr;
 }

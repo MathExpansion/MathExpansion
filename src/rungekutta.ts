@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function rungeKuttaMethod(f, y0, t0, tn, h) {
+function rungeKuttaMethod(f: (arg0: any, arg1: any) => number, y0: any, t0: any, tn: number, h: number) {
   let t = t0;
   let y = y0;
 

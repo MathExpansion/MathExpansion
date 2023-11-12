@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function simulateMaxwellBoltzmannDistribution(T) {
+function simulateMaxwellBoltzmannDistribution(T: number) {
   // シミュレーションのパラメータ
   const numberOfParticles = 1000; // 粒子数
   const mass = 1; // 粒子の質量
@@ -37,13 +37,13 @@ function simulateMaxwellBoltzmannDistribution(T) {
 }
 
 // 速度分布を生成
-function generateMaxwellBoltzmannDistribution(numberOfParticles, T, mass) {
+function generateMaxwellBoltzmannDistribution(numberOfParticles: number, T: number, mass: number) {
   const velocities = [];
 
   for (let i = 0; i < numberOfParticles; i++) {
     // Maxwell-Boltzmann分布に従った速度生成
     const v =
-      Math.sqrt((2 * k_b * K) / mass) * Math.sqrt(-2 * Math.log(Math.random()));
+      Math.sqrt((2 * k_b * T) / mass) * Math.sqrt(-2 * Math.log(Math.random()));
     velocities.push(v);
   }
 

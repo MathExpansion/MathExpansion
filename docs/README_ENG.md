@@ -42,6 +42,8 @@ You can use Sourcetree, GitBash, or any Git management tool you are comfortable 
 - Download
   - [https://gitforwindows.org/](https://gitforwindows.org/)
 
+### About error check
+
 ## Setting Up a Local Environment for Google Apps Script (GAS)
 
 ### Prerequisites

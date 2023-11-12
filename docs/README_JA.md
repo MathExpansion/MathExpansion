@@ -16,10 +16,6 @@ limitations under the License.
 
 # 概要
 
-Google Spreadsheetsで数式モデルを実装したりするプロジェクト  
-![ME2](img/ME2.jpg)  
-![ME3](img/ME3.jpg)  
-![ME6](img/ME6.jpg)
 
 ScriptID =  
 `1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc`  
@@ -137,7 +133,6 @@ $ npm run deploy:prod
 
 # その他(others)
 
-手が空いた時に各々がやる感じなので、そこまで使命感みたいなのは持たなくて大丈夫だと思っている
 
 # 定数及びカスタム関数リファレンス
 
