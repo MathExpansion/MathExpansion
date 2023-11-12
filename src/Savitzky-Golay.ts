@@ -77,6 +77,3 @@ const data = [1, 2, 3, 4, 5, 8, 15, 20, 12, 9, 5, 3, 2, 1];
 const windowSize = 5;
 const polynomialOrder = 2;
 const smoothedData = SavitzkyGolay.smooth(data, windowSize, polynomialOrder);
-
-// 結果をコンソールに表示
-console.log(smoothedData);

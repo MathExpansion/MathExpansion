@@ -52,6 +52,3 @@ const initialY = 0.1;
 
 // グモウスキー・ミラの写像を実行
 const result = gumowskiMira.run(iterations, initialX, initialY);
-
-// 結果をコンソールに表示
-console.log(result);

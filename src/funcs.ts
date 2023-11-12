@@ -19,14 +19,6 @@ function stefanBoltzmannLaw(temperature: number): number {
     return intensity;
 }
 
-// テスト用の温度 (摂氏25度)
-const temperatureCelsius = 25;
-
-// シュテファン＝ボルツマンの法則の計算を呼び出し
-const result = stefanBoltzmannLaw(temperatureCelsius);
-
-console.log(`温度 ${temperatureCelsius} 度の物体の放射強度は ${result} W/m^2 です。`);
-
 // ポリガンマ関数の計算
 function polygamma(n: number, x: number): number {
     if (n === 0) {
@@ -37,14 +29,6 @@ function polygamma(n: number, x: number): number {
     }
 }
 
-// テスト用のパラメータ
-const nValue = 2;
-const xValue = 3;
-
-// ポリガンマ関数の計算を呼び出し
-const result = polygamma(nValue, xValue);
-
-console.log(`Polygamma(${nValue}, ${xValue}) = ${result}`);
 
 // リープマンの式の整数引数に対する実装
 function riemannZetaFunction(n: number): number {
@@ -57,25 +41,8 @@ function riemannZetaFunction(n: number): number {
     }
 }
 
-// 階乗の計算
-function factorial(x: number): number {
-    if (x === 0 || x === 1) {
-        return 1;
-    } else {
-        return x * factorial(x - 1);
-    }
-}
 
-// ポリガンマ関数の計算（前述のコードを使用）
-
-// テスト用の整数
-const nValue = 4;
-
-// リープマンの式の計算を呼び出し
-const result = riemannZetaFunction(nValue);
-
-console.log(`ζ(${nValue}) = ${result}`);
-
+//ブラッグの法則
 function calculateBraggAngle(wavelength: number, order: number, latticeSpacing: number): number {
     const thetaRad = Math.asin((order * wavelength) / (2 * latticeSpacing));
     // Convert radians to degrees
@@ -89,7 +56,8 @@ const order = 1; // Replace with the desired diffraction order
 const latticeSpacing = 0.2; // Replace with the actual lattice spacing in the same unit as wavelength
 
 const braggAngle = calculateBraggAngle(wavelength, order, latticeSpacing);
-console.log(`Bragg Reflection Angle: ${braggAngle} degrees`);
+
+
 
 function besselEquationSolver(n: number, xMax: number, stepSize: number): number[] {
     const result: number[] = [];
@@ -111,14 +79,7 @@ function besselEquationSolver(n: number, xMax: number, stepSize: number): number
     return result;
 }
 
-// Example usage
-const n = 2; // Replace with the desired constant
-const xMax = 10; // Replace with the desired maximum value of x
-const stepSize = 0.1; // Replace with the desired step size
-
-const solution = besselEquationSolver(n, xMax, stepSize);
-console.log("Bessel Function Values:", solution);
-
+//timoshenkoEquation
 function timoshenkoEquationSolver(E: number, I: number, beta1: number, beta2: number, beta3: number, beta4: number, F: (x: number) => number, xMax: number, stepSize: number): number[] {
     const result: number[] = [];
 
@@ -146,13 +107,6 @@ function timoshenkoEquationSolver(E: number, I: number, beta1: number, beta2: nu
     return result;
 }
 
-// Example usage
-const E = 1.0; // Replace with the Young's modulus
-const I = 1.0; // Replace with the moment of inertia
-const beta1 = 0.1;
-const beta2 = 0.2;
-const beta3 = 0.3;
-const beta4 = 0.4;
 
 // Replace the following function with the actual external force function F(x)
 const F = (x: number) => 0.0;
@@ -160,9 +114,7 @@ const F = (x: number) => 0.0;
 const xMax = 10.0; // Replace with the desired maximum value of x
 const stepSize = 0.1; // Replace with the desired step size
 
-const solution = timoshenkoEquationSolver(E, I, beta1, beta2, beta3, beta4, F, xMax, stepSize);
-console.log("Solution:", solution);
-
+//熱方程式
 function heatEquationSolver(
   alpha: number, // 熱拡散係数
   length: number, // 空間の長さ
@@ -199,17 +151,7 @@ function heatEquationSolver(
   return u;
 }
 
-// サンプルの使用方法
-const alpha = 0.01; // 熱拡散係数
-const length = 1.0; // 空間の長さ
-const time = 1.0; // 計算する時間
-const divisions = 10; // 空間の区間数
-const timeSteps = 100; // 時間のステップ数
-
-const result = heatEquationSolver(alpha, length, time, divisions, timeSteps);
-console.log("Temperature distribution:", result);
-
-
+//フィッツヒュー・南雲方程式
 function fitzhughNagumoSolver(a: number, b: number, c: number, I: number, v0: number, w0: number, tMax: number, dt: number): { v: number[], w: number[] } {
     const numSteps = Math.floor(tMax / dt) + 1;
     const v: number[] = new Array(numSteps);
@@ -229,20 +171,7 @@ function fitzhughNagumoSolver(a: number, b: number, c: number, I: number, v0: nu
     return { v, w };
 }
 
-// サンプルの使用方法
-const a = 0.7;
-const b = 0.8;
-const c = 10.0;
-const I = 0.5;
-const v0 = -1.0;
-const w0 = 0.0;
-const tMax = 50.0;
-const dt = 0.01;
-
-const result = fitzhughNagumoSolver(a, b, c, I, v0, w0, tMax, dt);
-console.log("Membrane Potential (v):", result.v);
-console.log("Recovery Variable (w):", result.w);
-
+//ロトカ・ヴォルテラ方程式
 function lotkaVolterraSolver(alpha: number, beta: number, gamma: number, delta: number, x0: number, y0: number, tMax: number, dt: number): { x: number[], y: number[] } {
     const numSteps = Math.floor(tMax / dt) + 1;
     const x: number[] = new Array(numSteps);
@@ -262,20 +191,7 @@ function lotkaVolterraSolver(alpha: number, beta: number, gamma: number, delta: 
     return { x, y };
 }
 
-// サンプルの使用方法
-const alpha = 0.1;
-const beta = 0.02;
-const gamma = 0.1;
-const delta = 0.02;
-const x0 = 40;
-const y0 = 9;
-const tMax = 200;
-const dt = 0.1;
-
-const result = lotkaVolterraSolver(alpha, beta, gamma, delta, x0, y0, tMax, dt);
-console.log("Species X Population:", result.x);
-console.log("Species Y Population:", result.y);
-
+//SIRHモデル
 function sirhModelSolver(
     beta: number,
     gamma: number,
@@ -314,23 +230,7 @@ function sirhModelSolver(
     return { S, I, R, H };
 }
 
-// サンプルの使用方法
-const beta = 0.3; // 感染率
-const gamma = 0.1; // 回復率
-const delta = 0.05; // 入院率
-const initialS = 0.9 * 1000; // 未感染者初期値
-const initialI = 0.1 * 1000; // 感染者初期値
-const initialR = 0; // 回復者初期値
-const initialH = 0; // 入院中の患者初期値
-const tMax = 100; // 計算する時間
-const dt = 1; // 時間ステップ
-
-const result = sirhModelSolver(beta, gamma, delta, initialS, initialI, initialR, initialH, tMax, dt);
-console.log("未感染者 (S):", result.S);
-console.log("感染者 (I):", result.I);
-console.log("回復者 (R):", result.R);
-console.log("入院中の患者 (H):", result.H);
-
+//ベルトコンベアの摩耗率
 class BeltConveyor {
     private materialHardness: number; // 材料の硬度
     private beltSpeed: number; // ベルトの速度
@@ -352,14 +252,10 @@ class BeltConveyor {
 }
 
 // サンプルの使用方法
-const hardness = 500; // 材料の硬度（例として500と仮定）
-const speed = 2.0; // ベルトの速度（例として2.0 m/sと仮定）
-const pressure = 100; // 接触圧力（例として100 Paと仮定）
+//hardness 材料の硬度（例として500と仮定）
+//speed ベルトの速度（例として2.0 m/sと仮定）
+//pressure 接触圧力（例として100 Paと仮定）
 
-const conveyor = new BeltConveyor(hardness, speed, pressure);
-const wearRate = conveyor.calculateWearRate();
-
-console.log("摩耗率:", wearRate);
 
 function rungeKutta(
   f: (t: number, y: number[]) => number[],
@@ -395,15 +291,7 @@ function vanderPolEquation(t: number, y: number[]): number[] {
   return [dy0, dy1];
 }
 
-// サンプルの使用方法
-const y0 = [1.0, 0.0]; // 初期条件
-const t0 = 0.0;
-const tMax = 25.0;
-const dt = 0.01;
-
-const result = rungeKutta(vanderPolEquation, y0, t0, tMax, dt);
-console.log("Solution:", result);
-
+//ロジスティック差分式
 function logisticDifferenceEquation(r: number, K: number, P0: number, numSteps: number): number[] {
     const result: number[] = [];
     let P = P0;
@@ -416,15 +304,7 @@ function logisticDifferenceEquation(r: number, K: number, P0: number, numSteps: 
     return result;
 }
 
-// サンプルの使用方法
-const r = 2.5; // 増加率
-const K = 1000; // 環境収容力
-const P0 = 10; // 初期値
-const numSteps = 50; // ステップ数
-
-const result = logisticDifferenceEquation(r, K, P0, numSteps);
-console.log("Population:", result);
-
+//ラグランジュ補間
 class LagrangeInterpolator {
     private dataPoints: { x: number, y: number }[];
 
@@ -453,22 +333,7 @@ class LagrangeInterpolator {
     }
 }
 
-// サンプルの使用方法
-const dataPoints = [
-    { x: 1, y: 2 },
-    { x: 2, y: 5 },
-    { x: 3, y: 10 },
-    { x: 4, y: 17 }
-];
-
-const interpolator = new LagrangeInterpolator(dataPoints);
-
-// 補間点
-const interpolateX = 2.5;
-const interpolatedY = interpolator.interpolate(interpolateX);
-
-console.log(`Interpolated value at x=${interpolateX}: ${interpolatedY}`);
-
+//スプライン補間
 class NaturalSplineInterpolator {
     private dataPoints: { x: number, y: number }[];
     private coefficients: number[][];
@@ -549,144 +414,3 @@ class NaturalSplineInterpolator {
         return coefficients;
     }
 }
-
-// サンプルの使用方法
-const dataPoints = [
-    { x: 1, y: 2 },
-    { x: 2, y: 5 },
-    { x: 3, y: 10 },
-    { x: 4, y: 17 }
-];
-
-const interpolator = new NaturalSplineInterpolator(dataPoints);
-
-// 補間点
-const interpolateX = 2.5;
-const interpolatedY = interpolator.interpolate(interpolateX);
-
-console.log(`Interpolated value at x=${interpolateX}: ${interpolatedY}`);
-
-// ロボットの制御や運動学に関連する数式を TypeScript で表現した例
-
-class HumanoidRobot {
-    // ロボットの状態やパラメータを表すプロパティ
-    private jointAngles: number[]; // 関節角度
-
-    constructor() {
-        this.jointAngles = [0, 0, 0]; // 関節角度の初期化
-    }
-
-    // 関節角度をセットするメソッド
-    setJointAngles(angles: number[]): void {
-        this.jointAngles = angles;
-    }
-
-    // 運動学の逆解析を行うメソッド
-    inverseKinematics(targetPosition: { x: number, y: number, z: number }): number[] {
-        // ここに逆運動学の数式やアルゴリズムを実装
-        // 具体的な計算が必要ですが、例として単純な計算を行うとします。
-
-        const theta1 = Math.atan2(targetPosition.y, targetPosition.x);
-        const theta2 = Math.atan2(targetPosition.z, Math.sqrt(targetPosition.x ** 2 + targetPosition.y ** 2));
-
-        return [theta1, theta2];
-    }
-
-    // 制御アルゴリズムに基づいて関節を制御するメソッド
-    controlJoints(targetAngles: number[]): void {
-        // ここに制御アルゴリズムやPID制御などの実装
-        // 具体的な計算が必要ですが、例として目標角度に近づける単純な制御を行うとします。
-
-        const error = targetAngles.map((target, i) => target - this.jointAngles[i]);
-        const gains = [0.1, 0.1, 0.1]; // 例として適当なゲインを設定
-
-        this.jointAngles = this.jointAngles.map((angle, i) => angle + gains[i] * error[i]);
-    }
-}
-
-// サンプルの使用方法
-const robot = new HumanoidRobot();
-
-// 運動学の逆解析を行って目標位置に対応する関節角度を計算
-const targetPosition = { x: 1.0, y: 0.5, z: 0.8 };
-const targetJointAngles = robot.inverseKinematics(targetPosition);
-
-// 計算された関節角度をロボットにセットして制御
-robot.setJointAngles(targetJointAngles);
-robot.controlJoints(targetJointAngles);
-
-console.log("Current Joint Angles:", robot.getJointAngles());
-
-class RobotController {
-    private jointAngles: number[]; // 関節角度
-    private endEffectorPosition: { x: number, y: number, z: number }; // エンドエフェクタの位置
-
-    constructor() {
-        this.jointAngles = [0, 0, 0]; // 関節角度の初期化
-        this.endEffectorPosition = { x: 0, y: 0, z: 0 }; // エンドエフェクタの位置の初期化
-    }
-
-    // 関節角度をセットするメソッド
-    setJointAngles(angles: number[]): void {
-        this.jointAngles = angles;
-        // ここで逆運動学を用いてエンドエフェクタの位置を更新する処理を追加する可能性があります
-    }
-
-    // エンドエフェクタの位置を計算するメソッド
-    calculateEndEffectorPosition(): void {
-        // ここで順運動学の数式に基づいてエンドエフェクタの位置を計算する処理を追加する可能性があります
-    }
-
-    // サンプルの使用方法
-    moveRobotToPosition(targetPosition: { x: number, y: number, z: number }): void {
-        // ここで逆運動学を用いて目標位置に対応する関節角度を計算し、ロボットを動かす処理を追加する可能性があります
-    }
-}
-
-// サンプルの使用方法
-const robotController = new RobotController();
-
-// ロボットを指定した位置に動かす例
-robotController.moveRobotToPosition({ x: 1.0, y: 0.5, z: 0.8 });
-
-class RobotController {
-    private jointAngles: number[]; // 関節角度
-    private endEffectorPosition: { x: number, y: number, z: number }; // エンドエフェクタの位置
-
-    constructor() {
-        this.jointAngles = [0, 0, 0]; // 関節角度の初期化
-        this.endEffectorPosition = { x: 0, y: 0, z: 0 }; // エンドエフェクタの位置の初期化
-    }
-
-    // 関節角度をセットするメソッド
-    setJointAngles(angles: number[]): void {
-        this.jointAngles = angles;
-        // ここで逆運動学を用いてエンドエフェクタの位置を更新する処理を追加する可能性があります
-        this.calculateEndEffectorPosition();
-    }
-
-    // エンドエフェクタの位置を計算するメソッド
-    calculateEndEffectorPosition(): void {
-        // ここに順運動学の数式に基づいてエンドエフェクタの位置を計算する処理を追加
-        // 具体的な数式がわからないため、以下は単なる例です
-        const length1 = 1.0; // リンク1の長さ
-        const length2 = 1.0; // リンク2の長さ
-
-        const x = length1 * Math.cos(this.jointAngles[0]) + length2 * Math.cos(this.jointAngles[0] + this.jointAngles[1]);
-        const y = length1 * Math.sin(this.jointAngles[0]) + length2 * Math.sin(this.jointAngles[0] + this.jointAngles[1]);
-
-        this.endEffectorPosition = { x, y, z: 0 }; // 単純な2D平面での例としてz座標は0とします
-    }
-
-    // サンプルの使用方法
-    moveRobotToPosition(targetPosition: { x: number, y: number, z: number }): void {
-        // ここで逆運動学を用いて目標位置に対応する関節角度を計算し、ロボットを動かす処理を追加する可能性があります
-    }
-}
-
-// サンプルの使用方法
-const robotController = new RobotController();
-
-// ロボットを指定した位置に動かす例
-robotController.moveRobotToPosition({ x: 1.0, y: 0.5, z: 0.8 });
-

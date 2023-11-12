@@ -20,13 +20,3 @@ class McCabeThiele {
     };
   }
 }
-
-// サンプルデータ
-const alpha = 0.7; // ボトムスプリット（下留め）組成
-const beta = 0.1;  // トップスプリット（上留め）組成
-
-// McCabe-Thiele法による蒸留カラムの設計
-const result = McCabeThiele.designColumn(alpha, beta);
-
-// 結果をコンソールに表示
-console.log(result);

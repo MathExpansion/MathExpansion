@@ -53,8 +53,6 @@ const x = 2.0;
 
 // 第一種ベッセル関数の計算
 const besselJResult = BesselFunction.besselJ(x);
-console.log(`Bessel J(${x}) = ${besselJResult}`);
 
 // 第二種ベッセル関数の計算
 const besselYResult = BesselFunction.besselY(x);
-console.log(`Bessel Y(${x}) = ${besselYResult}`);
