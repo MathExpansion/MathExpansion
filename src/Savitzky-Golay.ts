@@ -25,8 +25,8 @@ class SavitzkyGolay {
     const halfWindowSize = Math.floor(windowSize / 2);
 
     for (let i = -halfWindowSize; i <= halfWindowSize; i++) {
-      const numerator = this.factorial(2 * polynomialOrder);
-      const denominator1 = Math.pow(this.factorial(polynomialOrder), 2);
+      const numerator = fact(2 * polynomialOrder);
+      const denominator1 = Math.pow(fact(polynomialOrder), 2);
       const denominator2 = Math.pow(2, (2 * polynomialOrder + 1));
       const denominator = denominator1 * denominator2;
 
@@ -51,19 +51,12 @@ class SavitzkyGolay {
     return smoothedValue;
   }
 
-  // 階乗を計算
-  private static factorial(n: number): number {
-    if (n === 0 || n === 1) {
-      return 1;
-    }
 
-    return n * this.factorial(n - 1);
-  }
 
   // 重み付き階乗を計算
   private static calculateWeightedFactorial(polynomialOrder: number, i: number, windowSize: number): number {
-    const numerator = this.factorial(2 * polynomialOrder - 2);
-    const denominator = this.factorial(polynomialOrder - 2) * Math.pow(2, polynomialOrder - 1);
+    const numerator = fact(2 * polynomialOrder - 2);
+    const denominator = fact(polynomialOrder - 2) * Math.pow(2, polynomialOrder - 1);
     const result = (numerator / denominator) * Math.pow(i, polynomialOrder - 2) * Math.pow(windowSize, -polynomialOrder);
 
     return result;

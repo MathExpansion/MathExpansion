@@ -1,22 +1,7 @@
 // シュテファン＝ボルツマンの法則の計算
-function stefanBoltzmannLaw(temperature: number): number {
-    // プランク定数 (Js) [Joule second]
-    const planckConstant = 6.62607015e-34;
-    
-    // 光速 (m/s)
+function stefanBoltzmannLaw(Kelvintemperature: number): number {
     const speedOfLight = 299792458;
-    
-    // ボルツマン定数 [Joule per Kelvin]
-    const boltzmannConstant = 1.380649e-23;
-
-    // 温度を絶対温度に変換 (Kelvin)
-    const absoluteTemperature = temperature + 273.15;
-
-    // シュテファン＝ボルツマンの法則の計算
-    const stefanBoltzmannConstant = (2 * Math.PI * planckConstant * Math.pow(speedOfLight, 2)) / Math.pow(boltzmannConstant, 4);
-    const intensity = stefanBoltzmannConstant * Math.pow(absoluteTemperature, 4);
-
-    return intensity;
+    return ((2 * Math.PI * h_Planck * Math.pow(speedOfLight, 2)) / Math.pow(k_b, 4)) * Math.pow(Kelvintemperature, 4);
 }
 
 // ポリガンマ関数の計算
@@ -46,8 +31,7 @@ function riemannZetaFunction(n: number): number {
 function calculateBraggAngle(wavelength: number, order: number, latticeSpacing: number): number {
     const thetaRad = Math.asin((order * wavelength) / (2 * latticeSpacing));
     // Convert radians to degrees
-    const thetaDegrees = (180 / Math.PI) * thetaRad;
-    return thetaDegrees;
+    return deg(thetaRad);
 }
 
 // Example usage
