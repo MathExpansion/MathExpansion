@@ -1,18 +1,14 @@
-// シュテファン＝ボルツマンの法則の計算
-function stefanBoltzmannLaw(Kelvintemperature: number): number {
-    const speedOfLight = 299792458;
-    return ((2 * Math.PI * h_Planck * Math.pow(speedOfLight, 2)) / Math.pow(k_b, 4)) * Math.pow(Kelvintemperature, 4);
-}
+// Calculate the energy of electromagnetic waves emitted from a black body using Stefan Boltzmann's law
+const black_body_energy = (Kelvintemperature: number) => 
+    ((2 * Math.PI * h_Planck * Math.pow(speedOfLight, 2)) / Math.pow(k_b, 4)) * Math.pow(Kelvintemperature, 4);
 
 // ポリガンマ関数の計算
-function polygamma(n: number, x: number): number {
+const polygamma = function polygamma(n: number, x: number): number {
     if (n === 0) {
         return Math.log(x);
-    } else {
-        // ポリガンマ関数の再帰的な定義を使用
-        return polygamma(n - 1, x + 1) + 1 / Math.pow(x, n);
     }
-}
+    return polygamma(n - 1, x + 1) + 1 / Math.pow(x, n);
+};
 
 
 // リープマンの式の整数引数に対する実装
@@ -20,28 +16,15 @@ function riemannZetaFunction(n: number): number {
     if (n === 1) {
         // n = 1 の場合は発散するため、特別な処理が必要
         return Infinity;
-    } else {
-        // n が正の整数でない場合、一般的なリープマンの式に基づく計算
-        return Math.pow(2, n) * Math.pow(Math.PI, n - 1) * polygamma(n - 1, 1) / fact(n);
     }
-}
+        // n が正の整数でない場合、一般的なリープマンの式に基づく計算
+    return Math.pow(2, n) * Math.pow(Math.PI, n - 1) * polygamma(n - 1, 1) / fact(n);
+};
 
 
-//ブラッグの法則
-function calculateBraggAngle(wavelength: number, order: number, latticeSpacing: number): number {
-    const thetaRad = Math.asin((order * wavelength) / (2 * latticeSpacing));
-    // Convert radians to degrees
-    return deg(thetaRad);
-}
-
-// Example usage
-const wavelength = 0.1; // Replace with the actual wavelength in the same unit as latticeSpacing
-const order = 1; // Replace with the desired diffraction order
-const latticeSpacing = 0.2; // Replace with the actual lattice spacing in the same unit as wavelength
-
-const braggAngle = calculateBraggAngle(wavelength, order, latticeSpacing);
-
-
+//Find the angle between the crystal plane and the X-ray using Bragg's law
+const braggAngle = (wavelength: number, order: number, latticeSpacing: number) => 
+    deg(Math.asin((order * wavelength) / (2 * latticeSpacing)));
 
 function besselEquationSolver(n: number, xMax: number, stepSize: number): number[] {
     const result: number[] = [];

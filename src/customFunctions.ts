@@ -92,11 +92,11 @@ const fft = function fft(data: string | any[], k: number) {
   return { real: realPart, imag: imagPart };
 };
 
-const fact = function factorial(n: number): number {
+const fact = function fact(n: number): number {
   if (n === 0 || n === 1) {
     return 1;
   } else {
-    return n * factorial(n - 1);
+    return n * fact(n - 1);
   }
 };
 
@@ -106,7 +106,7 @@ const youngLaplace = (
   rho_Inside: number,
   rho_Outside: number) => ((2 * gamma) / radius) * (rho_Inside - rho_Outside);
 
-const poissonDist = function poissonDistribution(lambda: number, x: number) {
+const poissonDist = function (lambda: number, x: number) {
   const numerator = Math.exp(-lambda) * Math.pow(lambda, x);
   const denominator = fact(x);
   const probability = numerator / denominator;

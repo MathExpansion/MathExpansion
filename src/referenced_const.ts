@@ -33,6 +33,7 @@ const electron_mass = Math.pow(9.1093837015, -31);
 const elementary_charge = Math.pow(1.602176634, -19);
 const Faraday_const = n_a * elementary_charge;
 const mass_electron = Math.pow(9.1093837015, -31);
+const speedOfLight = 299792458;
 const imag_unit = [
   [0, -1],
   [1, 0],
@@ -42,7 +43,6 @@ const imag_unit = [
 const gaussian_integral = Math.sqrt(Math.PI);
 
 //infinity
-const inf = Infinity;
 const minus_inf = -Infinity;
 
 //Fourier_Transform
