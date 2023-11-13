@@ -248,7 +248,7 @@ function inner_prod(A: { [x: string]: { [x: string]: number; }; }[], B: { [x: st
 //matrixA = [[1, 2, 3], [4, 5, 6]];
 
 // 行列の足し算
-function matrixAddition(matrixA: string | any[], matrixB: any[][]) {
+function matrixAddition(matrixA: string[][], matrixB: string[][]) {
   const result = [];
   for (let i = 0; i < matrixA.length; i++) {
     result.push([]);
@@ -260,7 +260,7 @@ function matrixAddition(matrixA: string | any[], matrixB: any[][]) {
 }
 
 // 行列の引き算
-function matrixSubtraction(matrixA: string | any[], matrixB: number[][]) {
+function matrixSubtraction(matrixA: string[][], matrixB: string[][]) {
   const result = [];
   for (let i = 0; i < matrixA.length; i++) {
     result.push([]);
@@ -272,7 +272,7 @@ function matrixSubtraction(matrixA: string | any[], matrixB: number[][]) {
 }
 
 // 行列の掛け算
-function matrixMultiplication(matrixA: string | any[], matrixB: number[][]) {
+function matrixMultiplication(matrixA: number[][], matrixB: number[][]) {
   const result = [];
   for (let i = 0; i < matrixA.length; i++) {
     result.push([]);
@@ -287,7 +287,7 @@ function matrixMultiplication(matrixA: string | any[], matrixB: number[][]) {
 }
 
 // 行列の転置
-function matrixTranspose(matrix: string | any[]) {
+function matrixTranspose(matrix: string[][]) {
   const result = [];
   for (let i = 0; i < matrix[0].length; i++) {
     result.push([]);

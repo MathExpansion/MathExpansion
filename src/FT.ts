@@ -15,9 +15,6 @@ limitations under the License.
 */
 
 const appendrow = appendRow(['Frequency', 'Amplitude', 'Phase']);
-const amplitude = Math.hypot(x, y);
-//var amplitude = Math.sqrt(fftData.real * fftData.real + fftData.imag * fftData.imag);
-const phase = Math.atan2(y, x);
 
 function FFT(sampleRate: number) {
   const outputSheet = spreadsheet
@@ -28,6 +25,10 @@ function FFT(sampleRate: number) {
     const frequency = (k * sampleRate) / numRows;
     const x = fftData.real;
     const y = fftData.imag;
+
+    const amplitude = Math.hypot(x, y);
+    //var amplitude = Math.sqrt(fftData.real * fftData.real + fftData.imag * fftData.imag);
+    const phase = Math.atan2(y, x);
     
     outputSheet([frequency, amplitude, phase]); // 結果を新しいシートに保存
   }
@@ -52,6 +53,15 @@ function continuousFT(sampleRate: number) {
     const x = realPart;
     const y = imagPart;
     const frequency = (k * sampleRate) / numRows;
+    
+    const amplitude = Math.hypot(x, y);
+    //var amplitude = Math.sqrt(fftData.real * fftData.real + fftData.imag * fftData.imag);
+    const phase = Math.atan2(y, x);
+
     outputSheet([frequency, amplitude, phase]);
   }
+}
+
+function appendRow(arg0: string[]) {
+  throw new Error("Function not implemented.");
 }

@@ -37,7 +37,7 @@ function riemannZetaFunction(n: number): number {
         return Infinity;
     } else {
         // n が正の整数でない場合、一般的なリープマンの式に基づく計算
-        return Math.pow(2, n) * Math.pow(Math.PI, n - 1) * polygamma(n - 1, 1) / factorial(n);
+        return Math.pow(2, n) * Math.pow(Math.PI, n - 1) * polygamma(n - 1, 1) / fact(n);
     }
 }
 

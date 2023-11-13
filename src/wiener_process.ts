@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function simulateWienerProcess(n) {
+function simulateWienerProcess(n: number) {
   const wienerProcess = [0]; // 初期値
   for (let i = 1; i < n; i++) {
     const randomValue = Math.random() * 2 - 1; // -1から1までの一様乱数

@@ -116,11 +116,11 @@ const fft = function fft(data: string | any[], k: number) {
   return { real: realPart, imag: imagPart };
 };
 
-const fact = function fact(n: number) {
+const fact = function factorial(n: number): number {
   if (n === 0 || n === 1) {
     return 1;
   } else {
-    return n * fact(n - 1);
+    return n * factorial(n - 1);
   }
 };
 

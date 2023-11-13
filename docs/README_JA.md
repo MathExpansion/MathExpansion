@@ -27,8 +27,7 @@ ScriptID =
 
 ## Gitの管理ツールについて
 
-基本的にはSourcetreeでもGitBashでも何でもいいです  
-使い慣れている方を使ってください  
+基本的には Sourcetree or GitBash を推奨します  
   
 ### Sourcetree
 
@@ -48,10 +47,8 @@ ScriptID =
 
 ### 前提
 
-- 当プロジェクトディレクトリ `MathExpansion\MathExpansion` (cloneしたディレクトリ直下) 以下で作業するのを前提とする
-- コマンドプロンプトで `npm`, `node` コマンドが使用できる
-  
-※下記コマンドでバージョンが表示されること  
+- 当プロジェクトディレクトリ `MathExpansion\MathExpansion` (cloneしたディレクトリ直下) 以下で作業  
+- コマンドプロンプトで下記コマンドを入力しバージョンが表示されること  
 
 ```
 Node --version
