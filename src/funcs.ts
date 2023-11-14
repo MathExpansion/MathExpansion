@@ -1,10 +1,8 @@
 // リープマンの式の整数引数に対する実装
 function riemannZetaFunction(n: number): number {
-    if (n === 1) {
-    // n = 1 の場合は発散するため、特別な処理が必要
-    return Infinity;
+    if (n === 1) { 
+    return Infinity; // n = 1 の場合は発散するため、特別な処理が必要
     }
-    // n が正の整数でない場合、一般的なリープマンの式に基づく計算
     return Math.pow(2, n) * Math.pow(Math.PI, n - 1) * polygamma(n - 1, 1) / fact(n);
 };
 
@@ -56,10 +54,9 @@ function timoshenkoEquationSolver(E: number, I: number, beta1: number, beta2: nu
 
 
 // Replace the following function with the actual external force function F(x)
-const F = (x: number) => 0.0;
-
-const xMax = 10.0; // Replace with the desired maximum value of x
-const stepSize = 0.1; // Replace with the desired step size
+//const F = (x: number) => 0.0;
+//const xMax = 10.0; // Replace with the desired maximum value of x
+//const stepSize = 0.1; // Replace with the desired step size
 
 //熱方程式
 function heatEquationSolver(

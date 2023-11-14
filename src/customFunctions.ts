@@ -19,11 +19,11 @@ Either variable x or y can be omitted.
 @customfunction
 @param r radius theta theta x x y y
 */
-const cycloid = function cycloid(r: number, theta: number, x: any, y: number) {
+const cycloid = function cycloid(r: number, theta: number, x: any) {
   if ((x = undefined)) {
-    return r * (1 - Math.cos(theta));
-  } else {
-    return r * (theta - Math.sin(theta));
+  return r * (1 - Math.cos(theta));
+  } {
+  return r * (theta - Math.sin(theta));
   }
 };
 
@@ -35,47 +35,31 @@ const entropy_kB = function Entropy_kB(
 };
 
 const lengevin = (x: number) => ((1 / Math.tanh(x)) - 1) / x;
-
-/*
-Returns the root mean square velocity, which is the velocity of the molecule.
-@param T Temperature
-@param M Molecular weight per mol
-@customfunction
-*/
-
 const rmsv = (T: number, M: number) =>  Math.sqrt((3 * gas_const * T) / M);
-
 const rho_NTP = (molar_mass: number) => (molar_mass * atm) / (gas_const * T0);
-
 const mass_wave = (m: number, T: number) =>  h_Planck / (m * rmsv(T, m * n_a));
-
 const rad = (degree: number) =>  degree * (Math.PI / 180);
-
 const deg = (radian: number) =>  radian / (Math.PI / 180);
-
 const sawtooth = (t: number) =>  t - Math.floor(t);
-
 const squareWave = (t: number) => Math.sign(Math.sin(t));
+const re = (rho: number, v: number, η: number, D: number) =>(rho * v * D) / η;
+const free_energy = (T: number, H: number, S: number) =>  H - T * S;
+const poissonDist = (lambda: number, x: number) => Math.exp(-lambda) * Math.pow(lambda, x) / fact(x);
 
 const nernst = (C_Inside: number, C_Outside: number, ion_valent: number, K: number) => 
   ((gas_const * K) / (ion_valent * Faraday_const)) * Math.log(C_Outside / C_Inside);
 
-const re = (rho: number, v: number, η: number, D: number) =>(rho * v * D) / η;
-
-
-const integral = function integral(fx: any,start: number, end: number, r: number) {
+const integral = function integral(f: (x: number) => number,start: number, end: number, r: number) {
   //fxには任意のリテラルカスタム関数を引数として入れてあげる，微小変位させたい引数はテスト時任意に指定する必要有り
     let dx = 0.00001;
     if (start > end) {
       [start, end] = [end, start];
     }
       for (var x = start; x < end; x += dx) {
-        r += fx * dx;
+        r += f(x) * dx;
       }
     return r;
 }
-
-const free_energy = (T: number, H: number, S: number) =>  H - T * S;
 
 // 高速フーリエ変換を実行する関数
 const fft = function fft(data: string | any[], k: number) {
@@ -94,9 +78,9 @@ const fft = function fft(data: string | any[], k: number) {
 
 const fact = function fact(n: number): number {
   if (n === 0 || n === 1) {
-    return 1;
-  } else {
-    return n * fact(n - 1);
+    return  1;
+  } {
+    return n  * fact(n - 1);
   }
 };
 
@@ -105,13 +89,6 @@ const youngLaplace = (
   gamma: number,
   rho_Inside: number,
   rho_Outside: number) => ((2 * gamma) / radius) * (rho_Inside - rho_Outside);
-
-const poissonDist = function (lambda: number, x: number) {
-  const numerator = Math.exp(-lambda) * Math.pow(lambda, x);
-  const denominator = fact(x);
-  const probability = numerator / denominator;
-  return probability;
-};
 
 const ButlerVolmerEq = function(T: number, E: number, E_standard: number) { 
   const k0 = Math.pow(10, -3); // 電極反応速度定数 (A/cm^2/mol^m/s)
@@ -144,14 +121,13 @@ const clothoid = function clothoidCurve(a: number, b: number, stepSize: number) 
 const polygamma = function polygamma(n: number, x: number): number {
   if (n === 0) {
   return Math.log(x);
-  }
+  } {
   return polygamma(n - 1, x + 1) + 1 / Math.pow(x, n);
+  }
 };
 
-const multinomial = function MULTINOMIAL() {
-  const sum = args.reduce((acc, val) => {
-    return acc + val;
-  }, 0); // 引数の合計を計算
+function MULTINOMIAL() {
+  const sum = args.reduce((acc, val) => { acc + val;}, 0); // 引数の合計を計算
 
   if (sum <= 0) {
     return '#NUM!'; // エラー処理：合計が非正の場合
