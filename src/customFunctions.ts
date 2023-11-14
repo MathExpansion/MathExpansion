@@ -13,19 +13,30 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-/*
-This is a custom function that returns the value of a cycloid.
-Either variable x or y can be omitted.
-@customfunction
-@param r radius theta theta x x y y
-*/
+
 const cycloid = function cycloid(r: number, theta: number, x: any) {
-  if ((x = undefined)) {
+  if (x = undefined) {
   return r * (1 - Math.cos(theta));
   } {
   return r * (theta - Math.sin(theta));
   }
 };
+
+const involute = function involute(r: number, theta: number, x: any) {
+  if (x = undefined) {
+    return r * (Math.sin(theta) - theta * Math.cos(theta));
+  } {
+    return r * (Math.cos(theta) + theta * Math.sin(theta));
+  }
+};
+
+const tractrix = function tractrix(r: number, theta: number, x: any) {
+  if (x = undefined) {
+    return r * (1 / Math.cosh(theta));
+  } {
+    return r * (theta - Math.tanh(theta));
+  }
+}
 
 const entropy_kB = function Entropy_kB(
   number_of_particles_a: number,
