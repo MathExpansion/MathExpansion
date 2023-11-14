@@ -63,17 +63,17 @@ const nernst = (C_Inside: number, C_Outside: number, ion_valent: number, K: numb
 const re = (rho: number, v: number, η: number, D: number) =>(rho * v * D) / η;
 
 
-// const integral = function integral(fx,start, end, r) {
-//fxには任意のリテラルカスタム関数を引数として入れてあげる，微小変位させたい引数はテスト時任意に指定する必要有り
-//   let dx = 0.00001;
-//   if (start > end) {
-//     [start, end] = [end, start];
-//   }
-//   for (var x = start; x < end; x += dx) {
-//     r += fx * dx;
-//   }
-//   return r;
-// }
+const integral = function integral(fx: any,start: number, end: number, r: number) {
+  //fxには任意のリテラルカスタム関数を引数として入れてあげる，微小変位させたい引数はテスト時任意に指定する必要有り
+    let dx = 0.00001;
+    if (start > end) {
+      [start, end] = [end, start];
+    }
+      for (var x = start; x < end; x += dx) {
+        r += fx * dx;
+      }
+    return r;
+}
 
 const free_energy = (T: number, H: number, S: number) =>  H - T * S;
 
@@ -119,3 +119,52 @@ const ButlerVolmerEq = function(T: number, E: number, E_standard: number) {
 
   return  k0 * Math.exp((alpha * Faraday_const * (E - E_standard)) / (gas_const * T));
 };
+
+// Calculate the energy of electromagnetic waves emitted from a black body using Stefan Boltzmann's law
+const black_body_energy = (Kelvintemperature: number) => 
+    ((2 * Math.PI * h_Planck * Math.pow(speedOfLight, 2)) / Math.pow(k_b, 4)) * Math.pow(Kelvintemperature, 4);
+
+//Find the angle between the crystal plane and the X-ray using Bragg's law
+const braggAngle = (wavelength: number, order: number, latticeSpacing: number) => 
+    deg(Math.asin((order * wavelength) / (2 * latticeSpacing)));
+
+const clothoid = function clothoidCurve(a: number, b: number, stepSize: number) {
+  const data = [];
+    
+  for (let t = 0; t <= a * Math.sqrt(b); t += stepSize) {
+    const x = Math.cos((a * t * t) / 2);
+    const y = Math.sin((a * t * t) / 2);
+    data.push([x,y]);
+    }
+    
+    sheet.getRange(1, 1, data.length, data[0,0].length).setValues(data);
+}
+
+// ポリガンマ関数の計算
+const polygamma = function polygamma(n: number, x: number): number {
+  if (n === 0) {
+  return Math.log(x);
+  }
+  return polygamma(n - 1, x + 1) + 1 / Math.pow(x, n);
+};
+
+const multinomial = function MULTINOMIAL() {
+  const sum = args.reduce((acc, val) => {
+    return acc + val;
+  }, 0); // 引数の合計を計算
+
+  if (sum <= 0) {
+    return '#NUM!'; // エラー処理：合計が非正の場合
+  }
+
+  let result = fact(sum);
+
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] <= 0) {
+      return '#NUM!'; // エラー処理：非正の引数がある場合
+    }
+    result /= fact(args[i]);
+  }
+
+  return result;
+}

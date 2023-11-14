@@ -1,30 +1,12 @@
-// Calculate the energy of electromagnetic waves emitted from a black body using Stefan Boltzmann's law
-const black_body_energy = (Kelvintemperature: number) => 
-    ((2 * Math.PI * h_Planck * Math.pow(speedOfLight, 2)) / Math.pow(k_b, 4)) * Math.pow(Kelvintemperature, 4);
-
-// ポリガンマ関数の計算
-const polygamma = function polygamma(n: number, x: number): number {
-    if (n === 0) {
-        return Math.log(x);
-    }
-    return polygamma(n - 1, x + 1) + 1 / Math.pow(x, n);
-};
-
-
 // リープマンの式の整数引数に対する実装
 function riemannZetaFunction(n: number): number {
     if (n === 1) {
-        // n = 1 の場合は発散するため、特別な処理が必要
-        return Infinity;
+    // n = 1 の場合は発散するため、特別な処理が必要
+    return Infinity;
     }
-        // n が正の整数でない場合、一般的なリープマンの式に基づく計算
+    // n が正の整数でない場合、一般的なリープマンの式に基づく計算
     return Math.pow(2, n) * Math.pow(Math.PI, n - 1) * polygamma(n - 1, 1) / fact(n);
 };
-
-
-//Find the angle between the crystal plane and the X-ray using Bragg's law
-const braggAngle = (wavelength: number, order: number, latticeSpacing: number) => 
-    deg(Math.asin((order * wavelength) / (2 * latticeSpacing)));
 
 function besselEquationSolver(n: number, xMax: number, stepSize: number): number[] {
     const result: number[] = [];
@@ -42,7 +24,6 @@ function besselEquationSolver(n: number, xMax: number, stepSize: number): number
         y0 = y1;
         y1 = y2;
     }
-
     return result;
 }
 
@@ -70,7 +51,6 @@ function timoshenkoEquationSolver(E: number, I: number, beta1: number, beta2: nu
         wDoublePrime += deltaWDoublePrime;
         wTriplePrime += deltaWTriplePrime;
     }
-
     return result;
 }
 
@@ -114,7 +94,6 @@ function heatEquationSolver(
     u[0][j] = initialTemperature;
     u[divisions][j] = initialTemperature;
   }
-
   return u;
 }
 
@@ -134,7 +113,6 @@ function fitzhughNagumoSolver(a: number, b: number, c: number, I: number, v0: nu
         v[i] = v[i - 1] + dv;
         w[i] = w[i - 1] + dw;
     }
-
     return { v, w };
 }
 
@@ -154,7 +132,6 @@ function lotkaVolterraSolver(alpha: number, beta: number, gamma: number, delta: 
         x[i] = x[i - 1] + dx;
         y[i] = y[i - 1] + dy;
     }
-
     return { x, y };
 }
 
@@ -193,7 +170,6 @@ function sirhModelSolver(
         R[i] = R[i - 1] + dt * dR;
         H[i] = H[i - 1] + dt * dH;
     }
-
     return { S, I, R, H };
 }
 
