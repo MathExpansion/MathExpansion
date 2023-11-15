@@ -14,12 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 //配列(など)をJSONで厳密に比較
-function JSON_equal(x: any[], y: any) {
+function JSON_equal(x: number[], y: any) {
   return JSON.stringify(x) === JSON.stringify(y);
 }
 
 //行列として扱えるか？扱えないならfalse, 扱えるなら[row, col]を返す。
-function is_matrix(array: any[]) {
+function is_matrix(array: string[]) {
   const row = array.length;
   const col = array[0].length;
   if (col === undefined) {
@@ -63,7 +63,7 @@ function eye(row: number, col: number) {
   return eye;
 }
 //対角行列
-function diag(...c: any[]) {
+function diag(...c: string[]) {
   const diag = [];
   for (let i = 0; i < c.length; i++) {
     const tmp = [];
@@ -79,7 +79,7 @@ function diag(...c: any[]) {
   return diag;
 }
 //行列の和 A+B
-function add_asmatrix(A: { [x: string]: { [x: string]: any; }; }, B: { [x: string]: { [x: string]: any; }; }) {
+function add_asmatrix(A: { [x: string]: { [x: string]: string; }; }, B: { [x: string]: { [x: string]: number; }; }) {
   const Amn = is_matrix(A);
   const Bmn = is_matrix(B);
   if (Amn === false || Bmn === false) {

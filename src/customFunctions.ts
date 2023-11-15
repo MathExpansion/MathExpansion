@@ -36,7 +36,16 @@ const tractrix = function tractrix(r: number, theta: number, x: any) {
   } {
     return r * (theta - Math.tanh(theta));
   }
-}
+};
+
+const logarithmic_spiral = function logarithmic_spiral(theta: number, a: number, b:number, x: any) {
+  const r = a * Math.exp(b * theta);
+  if (x = undefined) {
+    return r * Math.sin(theta);
+  } {
+    return r * Math.cos(theta);
+  }
+};
 
 const entropy_kB = function Entropy_kB(
   number_of_particles_a: number,

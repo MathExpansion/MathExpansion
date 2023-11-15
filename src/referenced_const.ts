@@ -42,8 +42,9 @@ const imag_unit = [
 //Gaussian integral or Euler Poisson integral [-inf,inf]exp(-x^2)dx
 const gaussian_integral = Math.sqrt(Math.PI);
 
-//infinity
+//infinity,golden_number
 const minus_inf = -Infinity;
+const golden_number = (1 + Math.sqrt(5)) / 2;
 
 //Fourier_Transform
 
