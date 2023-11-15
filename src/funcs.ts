@@ -1,5 +1,5 @@
 // リープマンの式の整数引数に対する実装
-function riemannZetaFunction(n: number): number {
+const riemannZeta = function riemannZetaFunction(n: number): number {
     if (n === 1) { 
     return Infinity; // n = 1 の場合は発散するため、特別な処理が必要
     }

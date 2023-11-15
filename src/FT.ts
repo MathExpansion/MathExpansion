@@ -23,12 +23,10 @@ function FFT(sampleRate: number) {
   for (let k = 0; k < numRows; k++) {
     const fftData = fft(values, k); // データをFFT(高速フーリエ変換)にかける
     const frequency = (k * sampleRate) / numRows;
-    const x = fftData.real;
-    const y = fftData.imag;
 
-    const amplitude = Math.hypot(x, y);
-    //var amplitude = Math.sqrt(fftData.real * fftData.real + fftData.imag * fftData.imag);
-    const phase = Math.atan2(y, x);
+    const amplitude = Math.hypot(fftData.real, fftData.imag);
+    //Math.hypot(x,y) = Math.sqrt(x * x + y * y);
+    const phase = Math.atan2(fftData.imag, fftData.real);
     
     outputSheet([frequency, amplitude, phase]); // 結果を新しいシートに保存
   }
@@ -50,13 +48,11 @@ function continuousFT(sampleRate: number) {
       imagPart -= values[n][0] * Math.sin(angle);
     }
 
-    const x = realPart;
-    const y = imagPart;
     const frequency = (k * sampleRate) / numRows;
     
-    const amplitude = Math.hypot(x, y);
-    //var amplitude = Math.sqrt(fftData.real * fftData.real + fftData.imag * fftData.imag);
-    const phase = Math.atan2(y, x);
+    const amplitude = Math.hypot(realPart, imagPart);
+    //Math.hypot(x,y) = Math.sqrt(x * x + y * y);
+    const phase = Math.atan2(imagPart, realPart);
 
     outputSheet([frequency, amplitude, phase]);
   }
