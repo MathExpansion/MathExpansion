@@ -164,3 +164,26 @@ function MULTINOMIAL() {
 
   return result;
 }
+
+const MaxwellBoltzmannDist = function MaxwellBoltzmannDist(numberOfParticles: number, T: number, m: number) {
+  const velocities = [];
+
+  for (let i = 0; i < numberOfParticles; i++) {
+    // Maxwell-Boltzmann分布に従った速度生成
+    const v =
+      Math.sqrt((2 * k_b * T) / m) * Math.sqrt(-2 * Math.log(Math.random()));
+    velocities.push(v);
+  }
+
+  return velocities;
+
+  // 結果をスプレッドシートに表示
+  const data = [];
+  data.push(['Particle', 'Velocity (m/s)']);
+
+  for (let i = 0; i < velocities.length; i++) {
+    data.push([i + 1, velocities[i]]);
+  }
+
+  sheet.getRange(1, 1, data.length, data[0].length).setValues(data);
+}

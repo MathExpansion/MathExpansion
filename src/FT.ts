@@ -62,6 +62,6 @@ function continuousFT(sampleRate: number) {
   }
 }
 
-function appendRow(arg0: string[]) {
+function appendRow(_arg0: string[]) {
   throw new Error("Function not implemented.");
 }
