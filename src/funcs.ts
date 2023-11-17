@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 // リープマンの式の整数引数に対する実装
-const riemannZeta = function riemannZetaFunction(n: number): number {
+const riemannZeta = function riemannZeta(n: number): number {
     if (n === 1) { 
     return Infinity; // n = 1 の場合は発散するため、特別な処理が必要
     }
