@@ -212,7 +212,7 @@ class BeltConveyor {
 //pressure 接触圧力（例として100 Paと仮定）
 
 
-function rungeKutta(
+function classical_RK4(
   f: (t: number, y: number[]) => number[],
   y0: number[],
   t0: number,
@@ -236,6 +236,28 @@ function rungeKutta(
   return result;
 }
 
+function classical_RK4_2(f: (arg0: number, arg1: number) => number, y0: number, t0: number, tn: number, h: number) {
+    let t = t0;
+    let y = y0;
+  
+    const data = [];
+    data.push([t, y]);
+  
+    while (t < tn) {
+      const k1 = h * f(t, y);
+      const k2 = h * f(t + h / 2, y + k1 / 2);
+      const k3 = h * f(t + h / 2, y + k2 / 2);
+      const k4 = h * f(t + h, y + k3);
+  
+      y = y + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+      t = t + h;
+  
+      data.push([t, y]);
+    }
+    return data;
+  }
+  
+
 // ファンデルポール方程式
 function vanderPolEquation(t: number, y: number[]): number[] {
   const mu = 1.0; // パラメータ
@@ -258,6 +280,81 @@ function logisticDifferenceEquation(r: number, K: number, P0: number, numSteps: 
 
     return result;
 }
+
+function weightedSum(...args: number[]) {
+    if (args.length % 2 !== 0) {
+      throw new Error('引数の数は偶数でなければなりません。');
+    }
+  
+    let sum = 0;
+    
+    for (let i = 0; i < args.length; i += 2) {
+      const value = args[i];
+      const weight = args[i + 1];
+  
+      if (typeof value !== 'number' || typeof weight !== 'number') {
+        throw new Error('値と重みは数値でなければなりません。');
+      }
+  
+      sum += value * weight;
+    }
+    return sum;
+}
+
+function PolynomialValue(degree: number, coefficients: string | any[], x: number) {
+    if (degree + 1 !== coefficients.length) {
+      return null;
+    }
+  
+    let result = 0;
+  
+    for (let i = 0; i <= degree; i++) {
+      result += coefficients[i] * Math.pow(x, i);
+    }
+  
+    return result;
+}
+  
+function PolynomialCoefficients(roots: string | any[]) {
+    const coefficients = [];
+    const degree = roots.length;
+  
+    for (let i = 0; i <= degree; i++) {
+      let sum = 0;
+  
+      for (let j = 0; j < degree; j++) {
+        if (i + j <= degree) {
+          sum += roots[j];
+        }
+      }
+      coefficients.push(sum);
+    }
+    return coefficients;
+}
+
+class McCabeThiele {
+    // McCabe-Thiele法による蒸留カラムの設計
+    public static designColumn(alpha: number, beta: number): { theoreticalPlates: number, distillateComposition: number, refluxRatio: number } {
+      // 操作ラインの勾配
+      const m = (alpha - beta) / (beta * (1 - alpha));
+  
+      // 理論段数
+      const theoreticalPlates = 1 / (m - 1);
+  
+      // 反流比
+      const refluxRatio = m * theoreticalPlates / (theoreticalPlates - 1);
+  
+      // 蒸留液の組成
+      const distillateComposition = 1 / (1 + refluxRatio);
+  
+      return {
+        theoreticalPlates,
+        distillateComposition,
+        refluxRatio,
+      };
+    }
+}
+  
 
 //ラグランジュ補間
 class LagrangeInterpolator {

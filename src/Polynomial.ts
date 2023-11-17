@@ -13,33 +13,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function PolynomialValue(degree: number, coefficients: string | any[], x: number) {
-  if (degree + 1 !== coefficients.length) {
-    return null;
-  }
-
-  let result = 0;
-
-  for (let i = 0; i <= degree; i++) {
-    result += coefficients[i] * Math.pow(x, i);
-  }
-
-  return result;
-}
-
-function PolynomialCoefficients(roots: string | any[]) {
-  const coefficients = [];
-  const degree = roots.length;
-
-  for (let i = 0; i <= degree; i++) {
-    let sum = 0;
-
-    for (let j = 0; j < degree; j++) {
-      if (i + j <= degree) {
-        sum += roots[j];
-      }
-    }
-    coefficients.push(sum);
-  }
-  return coefficients;
-}
