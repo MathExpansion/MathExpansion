@@ -468,7 +468,7 @@ class NaturalSplineInterpolator {
 }
 
 // RKF45の実装
-function rkf45(
+const rkf45 = function rkf45(
   func: (t: number, y: number) => number,
   y0: number,
   t0: number,
@@ -521,18 +521,10 @@ function rkf45(
   return { t: resultT, y: resultY };
 }
 
-// 使用例
-const odeFunction = (t: number, y: number) => -y; // 例: dy/dt = -y
-const initialY = 1;
-const initialT = 0;
-const stepSize = 0.1;
-const endTime = 5;
-const tolerance = 1e-6;
-
-const { t, y } = rkf45(odeFunction, initialY, initialT, stepSize, endTime, tolerance);
-
-// 結果の表示
-for (let i = 0; i < t.length; i++) {
-  console.log(`t: ${t[i].toFixed(3)}, y: ${y[i].toFixed(5)}`);
+const Duffing_equation = function Duffing_equation(func: (t: number, x: number) => number, x0: number, t0: number, tEnd: number, tolerance: number, sigma: number, alpha: number, beta: number, gamma: number, omega: number) {
+  const x_2dash = rkf45(
+    rkf45(func,x0,t0,0.00001,tEnd,tolerance),x0,t0,0.00001,tEnd,tolerance
+  ); 
+  x_2dash + sigma * rkf45(func,x0,t0,0.00001,tEnd,tolerance) + alpha * x + beta * x*x*x; 
+  gamma * Math.cos(omega * t);
 }
-
