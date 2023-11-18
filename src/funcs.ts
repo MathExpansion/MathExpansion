@@ -466,3 +466,73 @@ class NaturalSplineInterpolator {
         return coefficients;
     }
 }
+
+// RKF45の実装
+function rkf45(
+  func: (t: number, y: number) => number,
+  y0: number,
+  t0: number,
+  h: number,
+  tEnd: number,
+  tolerance: number
+): { t: number[], y: number[] } {
+  const resultT: number[] = [];
+  const resultY: number[] = [];
+
+  let t = t0;
+  let y = y0;
+
+  resultT.push(t);
+  resultY.push(y);
+
+  while (t < tEnd) {
+    // RKF45ステップ
+    const k1 = h * func(t, y);
+    const k2 = h * func(t + h / 4, y + k1 / 4);
+    const k3 = h * func(t + 3 * h / 8, y + 3 * k1 / 32 + 9 * k2 / 32);
+    const k4 = h * func(t + 12 * h / 13, y + 1932 * k1 / 2197 - 7200 * k2 / 2197 + 7296 * k3 / 2197);
+    const k5 = h * func(t + h, y + 439 * k1 / 216 - 8 * k2 + 3680 * k3 / 513 - 845 * k4 / 4104);
+    const k6 = h * func(t + h / 2, y - 8 * k1 / 27 + 2 * k2 - 3544 * k3 / 2565 + 1859 * k4 / 4104 - 11 * k5 / 40);
+
+    // 次のステップの予測値
+    const yNext = y + 25 * k1 / 216 + 1408 * k3 / 2565 + 2197 * k4 / 4104 - k5 / 5;
+
+    // 誤差の評価
+    const delta = Math.abs(
+      1 / 360 * k1 - 128 / 4275 * k3 - 2197 / 75240 * k4 + 1 / 50 * k5 + 2 / 55 * k6
+    );
+
+    // 次のステップのサイズの調整
+    const scaleFactor = 0.84 * Math.pow(tolerance / delta, 0.25);
+    const hNext = h * scaleFactor;
+
+    // 次のステップへ進む
+    t = t + h;
+    y = yNext;
+
+    // 結果を保存
+    resultT.push(t);
+    resultY.push(y);
+
+    // ステップサイズの更新
+    h = hNext;
+  }
+
+  return { t: resultT, y: resultY };
+}
+
+// 使用例
+const odeFunction = (t: number, y: number) => -y; // 例: dy/dt = -y
+const initialY = 1;
+const initialT = 0;
+const stepSize = 0.1;
+const endTime = 5;
+const tolerance = 1e-6;
+
+const { t, y } = rkf45(odeFunction, initialY, initialT, stepSize, endTime, tolerance);
+
+// 結果の表示
+for (let i = 0; i < t.length; i++) {
+  console.log(`t: ${t[i].toFixed(3)}, y: ${y[i].toFixed(5)}`);
+}
+
