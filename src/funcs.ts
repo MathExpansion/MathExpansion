@@ -526,6 +526,7 @@ const Duffing_equation = function Duffing_equation(dt: number, dx: number, func:
   const da = dz / dt;
   const func2 = func(dt,dz);
   const func3 = func(dt,da);
-  const x_dash = rkf45(func3(dt,dz),x0,t0,0.00001,tEnd,tolerance);
-  const x_2dash = rkf45(func2(dt,dx),x0,t0,0.00001,tEnd,tolerance)
+  const x_dash = rkf45(func2,x0,t0,0.00001,tEnd,tolerance);
+  const x_2dash = rkf45(func3,x0,t0,0.00001,tEnd,tolerance);
+  
 }
