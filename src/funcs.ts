@@ -536,7 +536,7 @@ const Duffing_equation2 = function Duffing_equation2(dt: number, dx: number, fun
 }
 
 // ダフィング方程式の定義
-function duffingEquation(t: number, y: number[]): number[] {
+const duffingEquation = function duffingEquation(t: number, y: number[]): number[] {
   const delta = 0.3;  // ダンピング係数
   const alpha = 1.0;  // 非線形項の係数
   const omega = 1.2;  // 外力の角周波数
@@ -547,55 +547,18 @@ function duffingEquation(t: number, y: number[]): number[] {
   return [dy0, dy1];
 }
 
-// RKF45法の実装
-function rungeKuttaFehlberg(
-  equation: (t: number, y: number[]) => number[],
-  y0: number[],
-  t0: number,
-  h: number,
-  tf: number
-): number[][] {
-  const result: number[][] = [[...y0]];
-  let t = t0;
-  let y = [...y0];
-
-  while (t < tf) {
-      const k1 = equation(t, y);
-      const k2 = equation(t + 1 / 4 * h, y.map((yi, i) => yi + 1 / 4 * h * k1[i]));
-      const k3 = equation(t + 3 / 8 * h, y.map((yi, i) => yi + 3 / 32 * h * k1[i] + 9 / 32 * h * k2[i]));
-      const k4 = equation(t + 12 / 13 * h, y.map((yi, i) => yi + 1932 / 2197 * h * k1[i] - 7200 / 2197 * h * k2[i] + 7296 / 2197 * h * k3[i]));
-      const k5 = equation(t + h, y.map((yi, i) => yi + 439 / 216 * h * k1[i] - 8 * h * k2[i] + 3680 / 513 * h * k3[i] - 845 / 4104 * h * k4[i]));
-      const k6 = equation(t + 1 / 2 * h, y.map((yi, i) => yi - 8 / 27 * h * k1[i] + 2 * h * k2[i] - 3544 / 2565 * h * k3[i] + 1859 / 4104 * h * k4[i] - 11 / 40 * h * k5[i]));
-
-      const error = Math.max(
-          Math.abs(1 / 360 * h * (k1[0] - 9 * k2[0] + 64 * k3[0] - 49 * k4[0] + 9 * k5[0])),
-          Math.abs(1 / 360 * h * (k1[1] - 9 * k2[1] + 64 * k3[1] - 49 * k4[1] + 9 * k5[1]))
-      );
-
-      if (error <= 1e-5) {
-          t += h;
-          y = y.map((yi, i) => yi + 25 / 216 * h * k1[i] + 1408 / 2565 * h * k3[i] + 2197 / 4104 * h * k4[i] - 1 / 5 * h * k5[i]);
-          result.push([...y]);
-      }
-
-      const s = 0.84 * Math.pow(1 / error, 1 / 4);
-      h = Math.min(s * h, 2 * h);
-  }
-
-  return result;
-}
 
 // サンプルの実行
 const y0 = [0.0, 0.0];  // 初期値
 const t0 = 0.0;         // 初期時刻
 const h = 0.01;         // 刻み幅
 const tf = 20.0;        // 終了時刻
-
-const result = rungeKuttaFehlberg(duffingEquation, y0, t0, h, tf);
+const tolerance = 0.000001;
+const func = duffingEquation;
+const result2 = rkf45(func, y0, t0, h, tf,tolerance);
 
 // 結果の表示
-console.log("Time\t\tPosition\tVelocity");
+
 result.forEach((values, index) => {
   const t = t0 + index * h;
-  console.log(`${t.toFixed(2)}\t\t${values[0].toFixed(4)}\t\t${values[1].toFixed(4)}`);
 });
