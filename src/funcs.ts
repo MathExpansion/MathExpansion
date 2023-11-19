@@ -521,11 +521,6 @@ const rkf45 = function rkf45(
   return { t: resultT, y: resultY };
 }
 
-const Duffing_equation = function Duffing_equation(func: (t: number, x: number) => number, x0: number, t0: number, tEnd: number, tolerance: number, sigma: number, alpha: number, beta: number, gamma: number, omega: number) {
-  const x_dash = rkf45(func,x0,t0,0.00001,tEnd,tolerance)
-  const x_2dash = rkf45(
-    x_dash,x0,t0,0.00001,tEnd,tolerance
-  ); 
-  x_2dash + sigma * x_dash + alpha * x + beta * x*x*x; 
-  gamma * Math.cos(omega * t);
+const Duffing_equation = function Duffing_equation(func: (dt: number, dx: number) => number, x0: number, t0: number, tEnd: number, tolerance: number, sigma: number, alpha: number, beta: number, gamma: number, omega: number) {
+  
 }
