@@ -5,7 +5,7 @@ on:
 
 jobs:
   format-check:
-    name: front-format-check
+    name: format-check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
