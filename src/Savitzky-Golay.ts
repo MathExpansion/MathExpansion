@@ -13,9 +13,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 class SavitzkyGolay {
   // Savitzky-Golay法によるデータの平滑化
-  public static smooth(data: number[], windowSize: number, polynomialOrder: number): number[] {
+  static smooth(data: number[], windowSize: number, polynomialOrder: number): number[] {
     const halfWindowSize = Math.floor(windowSize / 2);
     const result: number[] = [];
 
@@ -72,16 +73,15 @@ class SavitzkyGolay {
   private static calculateWeightedFactorial(polynomialOrder: number, i: number, windowSize: number): number {
     const numerator = fact(2 * polynomialOrder - 2);
     const denominator = fact(polynomialOrder - 2) * Math.pow(2, polynomialOrder - 1);
-    const result = (numerator / denominator) * Math.pow(i, polynomialOrder - 2) * Math.pow(windowSize, -polynomialOrder);
 
-    return result;
+    return (numerator / denominator) * Math.pow(i, polynomialOrder - 2) * Math.pow(windowSize, -polynomialOrder);
   }
 }
 
 // サンプルデータ
-const data = [1, 2, 3, 4, 5, 8, 15, 20, 12, 9, 5, 3, 2, 1];
+//const data = [1, 2, 3, 4, 5, 8, 15, 20, 12, 9, 5, 3, 2, 1];
 
 // Savitzky-Golay法による平滑化
-const windowSize = 5;
-const polynomialOrder = 2;
-const smoothedData = SavitzkyGolay.smooth(data, windowSize, polynomialOrder);
+//const windowSize = 5;
+//const polynomialOrder = 2;
+//const smoothedData = SavitzkyGolay.smooth(data, windowSize, polynomialOrder);
