@@ -175,7 +175,7 @@ const MaxwellBoltzmannDist = function MaxwellBoltzmannDist(numberOfParticles: nu
     velocities.push(v);
   }
 
-  return velocities;
+  //return velocities;
 
   // 結果をスプレッドシートに表示
   const data = [];
