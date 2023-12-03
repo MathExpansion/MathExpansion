@@ -173,7 +173,7 @@ const MaxwellBoltzmannDist = function MaxwellBoltzmannDist(numberOfParticles: nu
     velocities.push(v);
   }
 
-  return velocities;
+  //return velocities;
 
   // 結果をスプレッドシートに表示
   const data = [];
@@ -196,7 +196,7 @@ function Lorenz_eq(x0: number, y0: number, z0: number, sigma: number, rho: numbe
     y_next.map((y0) => ( x0 * (rho - z0) - y0 ) * stepsize);
     z_next.map((z0) => ( x0 * y0 - beta * z0) * stepsize);
     sheet.getRange(i,3,i,3).activate();
-    sheet.getActiveRangeList().setValue(lorenz);
+    sheet.getActiveRangeList()?.setValue(lorenz);
     lorenz.push(x_next, y_next, z_next);
   }
 }

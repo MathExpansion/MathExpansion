@@ -13,12 +13,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 function convergence_judgment() {
   function currentvalue(n: number) {
-    sheet.getCurrentCell().offset(n, 0).activate().getvalue();
+    sheet.getCurrentCell().offset(n, 0).activate().getValue();
   
 
-  const zero_quest = currentvalue(n); + currentvalue(n - 1);
+  const zero_quest = currentvalue(n) + currentvalue(n - 1);
 
   function showDialog() {
     const html = output_(zero_quest)
@@ -33,7 +34,7 @@ function convergence_judgment() {
     function output_(zero_quest: number) {
       if (zero_quest <= 0.0) {
         return HtmlService.createTemplateFromFile('display_convergence');
-      } {
+      } else {
         return HtmlService.createTemplateFromFile('display_not_convergence');
       }
     }  
