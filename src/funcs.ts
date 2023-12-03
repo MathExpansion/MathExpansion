@@ -13,6 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 // リープマンの式の整数引数に対する実装
 const riemannZeta = function riemannZeta(n: number): number {
     if (n === 1) { 
