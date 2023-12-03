@@ -13,8 +13,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 // リープマンの式の整数引数に対する実装
-const riemannZeta = function riemannZetaFunction(n: number): number {
+const riemannZeta = function riemannZeta(n: number): number {
     if (n === 1) { 
     return Infinity; // n = 1 の場合は発散するため、特別な処理が必要
     }
@@ -212,7 +213,7 @@ class BeltConveyor {
 //pressure 接触圧力（例として100 Paと仮定）
 
 
-function rungeKutta(
+function classical_RK4(
   f: (t: number, y: number[]) => number[],
   y0: number[],
   t0: number,
@@ -236,6 +237,28 @@ function rungeKutta(
   return result;
 }
 
+function classical_RK4_2(f: (arg0: number, arg1: number) => number, y0: number, t0: number, tn: number, h: number) {
+    let t = t0;
+    let y = y0;
+  
+    const data = [];
+    data.push([t, y]);
+  
+    while (t < tn) {
+      const k1 = h * f(t, y);
+      const k2 = h * f(t + h / 2, y + k1 / 2);
+      const k3 = h * f(t + h / 2, y + k2 / 2);
+      const k4 = h * f(t + h, y + k3);
+  
+      y = y + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+      t = t + h;
+  
+      data.push([t, y]);
+    }
+    return data;
+  }
+  
+
 // ファンデルポール方程式
 function vanderPolEquation(t: number, y: number[]): number[] {
   const mu = 1.0; // パラメータ
@@ -258,6 +281,81 @@ function logisticDifferenceEquation(r: number, K: number, P0: number, numSteps: 
 
     return result;
 }
+
+function weightedSum(...args: number[]) {
+    if (args.length % 2 !== 0) {
+      throw new Error('引数の数は偶数でなければなりません。');
+    }
+  
+    let sum = 0;
+    
+    for (let i = 0; i < args.length; i += 2) {
+      const value = args[i];
+      const weight = args[i + 1];
+  
+      if (typeof value !== 'number' || typeof weight !== 'number') {
+        throw new Error('値と重みは数値でなければなりません。');
+      }
+  
+      sum += value * weight;
+    }
+    return sum;
+}
+
+function PolynomialValue(degree: number, coefficients: string | any[], x: number) {
+    if (degree + 1 !== coefficients.length) {
+      return null;
+    }
+  
+    let result = 0;
+  
+    for (let i = 0; i <= degree; i++) {
+      result += coefficients[i] * Math.pow(x, i);
+    }
+  
+    return result;
+}
+  
+function PolynomialCoefficients(roots: string | any[]) {
+    const coefficients = [];
+    const degree = roots.length;
+  
+    for (let i = 0; i <= degree; i++) {
+      let sum = 0;
+  
+      for (let j = 0; j < degree; j++) {
+        if (i + j <= degree) {
+          sum += roots[j];
+        }
+      }
+      coefficients.push(sum);
+    }
+    return coefficients;
+}
+
+class McCabeThiele {
+    // McCabe-Thiele法による蒸留カラムの設計
+    public static designColumn(alpha: number, beta: number): { theoreticalPlates: number, distillateComposition: number, refluxRatio: number } {
+      // 操作ラインの勾配
+      const m = (alpha - beta) / (beta * (1 - alpha));
+  
+      // 理論段数
+      const theoreticalPlates = 1 / (m - 1);
+  
+      // 反流比
+      const refluxRatio = m * theoreticalPlates / (theoreticalPlates - 1);
+  
+      // 蒸留液の組成
+      const distillateComposition = 1 / (1 + refluxRatio);
+  
+      return {
+        theoreticalPlates,
+        distillateComposition,
+        refluxRatio,
+      };
+    }
+}
+  
 
 //ラグランジュ補間
 class LagrangeInterpolator {
@@ -368,4 +466,58 @@ class NaturalSplineInterpolator {
 
         return coefficients;
     }
+}
+
+// RKF45の実装
+const rkf45 = function rkf45(
+  func: (dt: number, dy: number) => number,
+  y0: number,
+  t0: number,
+  h: number,
+  tEnd: number,
+  tolerance: number
+): { t: number[], y: number[] } {
+  const resultT: number[] = [];
+  const resultY: number[] = [];
+
+  let t = t0;
+  let y = y0;
+
+  resultT.push(t);
+  resultY.push(y);
+
+  while (t < tEnd) {
+    // RKF45ステップ
+    const k1 = h * func(t, y);
+    const k2 = h * func(t + h / 4, y + k1 / 4);
+    const k3 = h * func(t + 3 * h / 8, y + 3 * k1 / 32 + 9 * k2 / 32);
+    const k4 = h * func(t + 12 * h / 13, y + 1932 * k1 / 2197 - 7200 * k2 / 2197 + 7296 * k3 / 2197);
+    const k5 = h * func(t + h, y + 439 * k1 / 216 - 8 * k2 + 3680 * k3 / 513 - 845 * k4 / 4104);
+    const k6 = h * func(t + h / 2, y - 8 * k1 / 27 + 2 * k2 - 3544 * k3 / 2565 + 1859 * k4 / 4104 - 11 * k5 / 40);
+
+    // 次のステップの予測値
+    const yNext = y + 25 * k1 / 216 + 1408 * k3 / 2565 + 2197 * k4 / 4104 - k5 / 5;
+
+    // 誤差の評価
+    const delta = Math.abs(
+      1 / 360 * k1 - 128 / 4275 * k3 - 2197 / 75240 * k4 + 1 / 50 * k5 + 2 / 55 * k6
+    );
+
+    // 次のステップのサイズの調整
+    const scaleFactor = 0.84 * Math.pow(tolerance / delta, 0.25);
+    const hNext = h * scaleFactor;
+
+    // 次のステップへ進む
+    t = t + h;
+    y = yNext;
+
+    // 結果を保存
+    resultT.push(t);
+    resultY.push(y);
+
+    // ステップサイズの更新
+    h = hNext;
+  }
+
+  return { t: resultT, y: resultY };
 }
