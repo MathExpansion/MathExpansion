@@ -13,6 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 function convergence_judgment() {
   function currentvalue(n: number) {
     sheet.getCurrentCell().offset(n, 0).activate().getvalue();
