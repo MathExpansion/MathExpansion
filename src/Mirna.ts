@@ -28,15 +28,19 @@ class GumowskiMira {
   }
 
   // グモウスキー・ミラの写像関数
-  private g(x: number, y: number): { x: number, y: number } {
+  private g(x: number, y: number): { x: number; y: number } {
     const newX = this.a * x + 2 * this.b * x * y + this.c * y;
     const newY = this.d * x + y - x * x;
     return { x: newX, y: newY };
   }
 
   // グモウスキー・ミラの写像を実行するメソッド
-  public run(iterations: number, initialX: number, initialY: number): { x: number, y: number }[] {
-    const points: { x: number, y: number }[] = [];
+  public run(
+    iterations: number,
+    initialX: number,
+    initialY: number
+  ): { x: number; y: number }[] {
+    const points: { x: number; y: number }[] = [];
 
     let x = initialX;
     let y = initialY;
