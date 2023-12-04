@@ -13,6 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 function mixtureEntropy() {
   // 各成分の分子数
   const n1 = 100; // 成分1の分子数

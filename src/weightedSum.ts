@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 function weightedSum(...args: number[]) {
   if (args.length % 2 !== 0) {
     throw new Error('引数の数は偶数でなければなりません。');
