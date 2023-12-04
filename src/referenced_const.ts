@@ -49,6 +49,5 @@ const golden_number = (1 + Math.sqrt(5)) / 2;
 
 //Fourier_Transform
 
-
 // 引数を配列に変換
 const args = Array.prototype.slice.call(arguments);

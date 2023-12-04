@@ -33,4 +33,3 @@ function mixtureEntropy() {
     (n3 / totalMoles) * entropy3
   );
 }
-

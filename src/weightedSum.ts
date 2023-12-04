@@ -20,7 +20,7 @@ function weightedSum(...args: number[]) {
   }
 
   let sum = 0;
-  
+
   for (let i = 0; i < args.length; i += 2) {
     const value = args[i];
     const weight = args[i + 1];

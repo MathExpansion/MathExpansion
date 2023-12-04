@@ -17,19 +17,18 @@ limitations under the License.
 function convergence_judgment() {
   function currentvalue(n: number) {
     sheet.getCurrentCell().offset(n, 0).activate().getValue();
-  
 
-  const zero_quest = currentvalue(n) + currentvalue(n - 1);
+    const zero_quest = currentvalue(n) + currentvalue(n - 1);
 
-  function showDialog() {
-    const html = output_(zero_quest)
-      .evaluate()
-      .setSandboxMode(HtmlService.SandboxMode.IFRAME)
-      .setWidth(500)
-      .setHeight(300)
-      .setTitle('convergence judgment');
-    spreadsheet.show(html);
-  }
+    function showDialog() {
+      const html = output_(zero_quest)
+        .evaluate()
+        .setSandboxMode(HtmlService.SandboxMode.IFRAME)
+        .setWidth(500)
+        .setHeight(300)
+        .setTitle('convergence judgment');
+      spreadsheet.show(html);
+    }
 
     function output_(zero_quest: number) {
       if (zero_quest <= 0.0) {
@@ -37,6 +36,6 @@ function convergence_judgment() {
       } else {
         return HtmlService.createTemplateFromFile('display_not_convergence');
       }
-    }  
+    }
   }
 }

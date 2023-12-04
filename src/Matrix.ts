@@ -34,7 +34,7 @@ function is_matrix(array: string[]) {
   return [row, col];
 }
 //零行列
-function zeros(row: number, col: number ) {
+function zeros(row: number, col: number) {
   if (row < 1 || col < 1) {
     throw new Error('IndexError');
   }
@@ -80,7 +80,10 @@ function diag(...c: string[]) {
   return diag;
 }
 //行列の和 A+B
-function add_asmatrix(A: { [x: string]: { [x: string]: string; }; }, B: { [x: string]: { [x: string]: number; }; }) {
+function add_asmatrix(
+  A: { [x: string]: { [x: string]: string } },
+  B: { [x: string]: { [x: string]: number } }
+) {
   const Amn = is_matrix(A);
   const Bmn = is_matrix(B);
   if (Amn === false || Bmn === false) {
@@ -98,7 +101,10 @@ function add_asmatrix(A: { [x: string]: { [x: string]: string; }; }, B: { [x: st
   return tmp;
 }
 //行列の差 A-B
-function sub_asmatrix(A: { [x: string]: { [x: string]: number; }; }, B: { [x: string]: { [x: string]: number; }; }) {
+function sub_asmatrix(
+  A: { [x: string]: { [x: string]: number } },
+  B: { [x: string]: { [x: string]: number } }
+) {
   const Amn = is_matrix(A);
   const Bmn = is_matrix(B);
   if (Amn === false || Bmn === false) {
@@ -116,7 +122,7 @@ function sub_asmatrix(A: { [x: string]: { [x: string]: number; }; }, B: { [x: st
   return tmp;
 }
 //行列のスカラー倍 xA
-function scalar_mul(A: { [x: string]: { [x: string]: number; }; }, x: number) {
+function scalar_mul(A: { [x: string]: { [x: string]: number } }, x: number) {
   const mn = is_matrix(A);
   if (mn === false) {
     throw new Error('Array is not matrixlike.');
@@ -130,7 +136,7 @@ function scalar_mul(A: { [x: string]: { [x: string]: number; }; }, x: number) {
   return tmp;
 }
 //行列の転置 A^t
-function T(A: { [x: string]: { [x: string]: number; }; }) {
+function T(A: { [x: string]: { [x: string]: number } }) {
   const mn = is_matrix(A);
   if (mn === false) {
     throw new Error('Array is not matrixlike.');
@@ -144,7 +150,10 @@ function T(A: { [x: string]: { [x: string]: number; }; }) {
   return tmp;
 }
 //行列の乗算 AB
-function mul_asmatrix(A: { [x: string]: number; }[], B: { [x: string]: number; }[]) {
+function mul_asmatrix(
+  A: { [x: string]: number }[],
+  B: { [x: string]: number }[]
+) {
   const Amn = is_matrix(A);
   const Bmn = is_matrix(B);
   if (Amn === false || Bmn === false) {
@@ -164,7 +173,7 @@ function mul_asmatrix(A: { [x: string]: number; }[], B: { [x: string]: number; }
   return tmp;
 }
 //行列の対角成分を抽出する
-function extract_diag(A: { [x: string]: { [x: string]: any; }; }[]) {
+function extract_diag(A: { [x: string]: { [x: string]: any } }[]) {
   const mn = is_matrix(A);
   if (mn === false) {
     throw new Error('Array is not matrixlike.');
@@ -179,7 +188,7 @@ function extract_diag(A: { [x: string]: { [x: string]: any; }; }[]) {
   return diag(...tmp);
 }
 //行列Aの下三角行列
-function lower(A: { [x: string]: number[]; }[]) {
+function lower(A: { [x: string]: number[] }[]) {
   const mn = is_matrix(A);
   if (mn === false) {
     throw new Error('Array is not matrixlike.');
@@ -196,7 +205,7 @@ function lower(A: { [x: string]: number[]; }[]) {
   return tmp;
 }
 //行列Aの上三角行列
-function upper(A: { [x: string]: { [x: string]: number; }; }[]) {
+function upper(A: { [x: string]: { [x: string]: number } }[]) {
   const mn = is_matrix(A);
   if (mn === false) {
     throw new Error('Array is not matrixlike.');
@@ -213,7 +222,7 @@ function upper(A: { [x: string]: { [x: string]: number; }; }[]) {
   return tmp;
 }
 //行列のトレース(対角和)
-function tr(A: { [x: string]: { [x: string]: number; }; }) {
+function tr(A: { [x: string]: { [x: string]: number } }) {
   const mn = is_matrix(A);
   if (mn === false) {
     throw new Error('Array is not matrixlike.');
@@ -228,7 +237,10 @@ function tr(A: { [x: string]: { [x: string]: number; }; }) {
   return tmp;
 }
 //行列の内積 <A,B>
-function inner_prod(A: { [x: string]: { [x: string]: number; }; }[], B: { [x: string]: { [x: string]: number; }; }[]) {
+function inner_prod(
+  A: { [x: string]: { [x: string]: number } }[],
+  B: { [x: string]: { [x: string]: number } }[]
+) {
   const Amn = is_matrix(A);
   const Bmn = is_matrix(B);
   if (Amn === false || Bmn === false) {

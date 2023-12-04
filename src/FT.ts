@@ -27,7 +27,7 @@ function FFT(sampleRate: number) {
     const amplitude = Math.hypot(fftData.real, fftData.imag);
     //Math.hypot(x,y) = Math.sqrt(x * x + y * y);
     const phase = Math.atan2(fftData.imag, fftData.real);
-    
+
     outputSheet([frequency, amplitude, phase]); // 結果を新しいシートに保存
   }
 }
@@ -49,7 +49,7 @@ function continuousFT(sampleRate: number) {
     }
 
     const frequency = (k * sampleRate) / numRows;
-    
+
     const amplitude = Math.hypot(realPart, imagPart);
     //Math.hypot(x,y) = Math.sqrt(x * x + y * y);
     const phase = Math.atan2(imagPart, realPart);
@@ -59,5 +59,5 @@ function continuousFT(sampleRate: number) {
 }
 
 function appendRow(_arg0: string[]) {
-  throw new Error("Function not implemented.");
+  throw new Error('Function not implemented.');
 }
