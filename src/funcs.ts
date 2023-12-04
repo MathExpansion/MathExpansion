@@ -15,17 +15,8 @@ limitations under the License.
 */
 
 // リープマンの式の整数引数に対する実装
-<<<<<<< HEAD
-const riemannZeta = function riemannZetaFunction(n: number): number {
-  if (n === 1) {
-=======
 const riemannZeta = function riemannZeta(n: number): number {
-<<<<<<< HEAD
-    if (n === 1) { 
->>>>>>> origin/feature/81_1_2
-=======
   if (n === 1) {
->>>>>>> feature/81_1_3
     return Infinity; // n = 1 の場合は発散するため、特別な処理が必要
   }
   return (
@@ -268,15 +259,7 @@ class BeltConveyor {
 //speed ベルトの速度（例として2.0 m/sと仮定）
 //pressure 接触圧力（例として100 Paと仮定）
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-function rungeKutta(
-=======
-
-=======
->>>>>>> feature/81_1_3
 function classical_RK4(
->>>>>>> origin/feature/81_1_2
   f: (t: number, y: number[]) => number[],
   y0: number[],
   t0: number,

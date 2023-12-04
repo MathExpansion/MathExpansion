@@ -43,12 +43,7 @@ function weibull_fitting() {
       .map((x: number) => x - 0.3);
     const f_median = i_03 / n + 0.4;
     sheetrange.offset(0, 1).setValues([f_median]);
-<<<<<<< HEAD
   } else {
-=======
-  }
-  {
->>>>>>> feature/81_1_3
     const f_average = sheetrange
       .offset(0, -1)
       .getValues()

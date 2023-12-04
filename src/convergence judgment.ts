@@ -16,16 +16,10 @@ limitations under the License.
 
 function convergence_judgment() {
   function currentvalue(n: number) {
-<<<<<<< HEAD
-    sheet.getCurrentCell().offset(n, 0).activate().getValue();
+
+    sheet.getCurrentCell()?.offset(n, 0).activate().getValue();
 
     const zero_quest = currentvalue(n) + currentvalue(n - 1);
-=======
-    sheet.getCurrentCell().offset(n, 0).activate().getvalue();
-
-    const zero_quest = currentvalue(n);
-    +currentvalue(n - 1);
->>>>>>> feature/81_1_3
 
     function showDialog() {
       const html = output_(zero_quest)
@@ -40,12 +34,7 @@ function convergence_judgment() {
     function output_(zero_quest: number) {
       if (zero_quest <= 0.0) {
         return HtmlService.createTemplateFromFile('display_convergence');
-<<<<<<< HEAD
       } else {
-=======
-      }
-      {
->>>>>>> feature/81_1_3
         return HtmlService.createTemplateFromFile('display_not_convergence');
       }
     }

@@ -16,11 +16,7 @@ limitations under the License.
 
 class SavitzkyGolay {
   // Savitzky-Golay法によるデータの平滑化
-<<<<<<< HEAD
   static smooth(
-=======
-  public static smooth(
->>>>>>> feature/81_1_3
     data: number[],
     windowSize: number,
     polynomialOrder: number
@@ -103,13 +99,6 @@ class SavitzkyGolay {
     const numerator = fact(2 * polynomialOrder - 2);
     const denominator =
       fact(polynomialOrder - 2) * Math.pow(2, polynomialOrder - 1);
-<<<<<<< HEAD
-=======
-    const result =
-      (numerator / denominator) *
-      Math.pow(i, polynomialOrder - 2) *
-      Math.pow(windowSize, -polynomialOrder);
->>>>>>> feature/81_1_3
 
     return (
       (numerator / denominator) *
