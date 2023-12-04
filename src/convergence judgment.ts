@@ -16,7 +16,6 @@ limitations under the License.
 
 function convergence_judgment() {
   function currentvalue(n: number) {
-
     sheet.getCurrentCell()?.offset(n, 0).activate().getValue();
 
     const zero_quest = currentvalue(n) + currentvalue(n - 1);
