@@ -127,11 +127,16 @@ const fact = function fact(n: number): number {
 };
 
 const youngLaplace = (
+<<<<<<< HEAD
   radius: number,
   gamma: number,
   rho_Inside: number,
   rho_Outside: number
 ) => ((2 * gamma) / radius) * (rho_Inside - rho_Outside);
+=======
+  radius: number, gamma: number,
+  rho_Inside: number, rho_Outside: number) => ((2 * gamma) / radius) * (rho_Inside - rho_Outside);
+>>>>>>> origin/feature/81_1_2
 
 const ButlerVolmerEq = function (T: number, E: number, E_standard: number) {
   const k0 = Math.pow(10, -3); // 電極反応速度定数 (A/cm^2/mol^m/s)
@@ -143,6 +148,7 @@ const ButlerVolmerEq = function (T: number, E: number, E_standard: number) {
 };
 
 // Calculate the energy of electromagnetic waves emitted from a black body using Stefan Boltzmann's law
+<<<<<<< HEAD
 const black_body_energy = (Kelvintemperature: number) =>
   ((2 * Math.PI * h_Planck * Math.pow(speedOfLight, 2)) / Math.pow(k_b, 4)) *
   Math.pow(Kelvintemperature, 4);
@@ -153,6 +159,14 @@ const braggAngle = (
   order: number,
   latticeSpacing: number
 ) => deg(Math.asin((order * wavelength) / (2 * latticeSpacing)));
+=======
+const black_body_energy = (Kelvintemperature: number) => 
+((2 * Math.PI * h_Planck * Math.pow(speedOfLight, 2)) / Math.pow(k_b, 4)) * Math.pow(Kelvintemperature, 4);
+
+//Find the angle between the crystal plane and the X-ray using Bragg's law
+const braggAngle = (wavelength: number, order: number, latticeSpacing: number) => 
+deg(Math.asin((order * wavelength) / (2 * latticeSpacing)));
+>>>>>>> origin/feature/81_1_2
 
 const clothoid = function clothoidCurve(
   a: number,

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 Copyright 2023 MathExpansion
 
@@ -43,3 +44,5 @@ class McCabeThiele {
     };
   }
 }
+=======
+>>>>>>> origin/feature/81_1_2
