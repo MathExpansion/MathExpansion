@@ -19,7 +19,7 @@ const appendrow = appendRow(['Frequency', 'Amplitude', 'Phase']);
 function FFT(sampleRate: number) {
   const outputSheet = spreadsheet
     .insertSheet('Continuous_FFT_Result')
-    .appendrow(); // 新しいシートを作成して結果を保存
+    .appendRow([]); // 新しいシートを作成して結果を保存
   for (let k = 0; k < numRows; k++) {
     const fftData = fft(values, k); // データをFFT(高速フーリエ変換)にかける
     const frequency = (k * sampleRate) / numRows;
@@ -35,7 +35,7 @@ function FFT(sampleRate: number) {
 function continuousFT(sampleRate: number) {
   const outputSheet = spreadsheet
     .insertSheet('Continuous_Fourier_Result')
-    .appendrow();
+    .appendRow([]);
 
   for (let k = 0; k < numRows; k++) {
     // フーリエ変換を計算
