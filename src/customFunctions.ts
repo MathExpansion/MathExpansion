@@ -24,7 +24,7 @@ const cycloid = function cycloid(r: number, theta: number, x: any) {
 };
 
 const involute = function involute(r: number, theta: number, x: any) {
-  if ((x = undefined)) {
+  if (x === undefined) {
     return r * (Math.sin(theta) - theta * Math.cos(theta));
   }
   {
@@ -33,7 +33,7 @@ const involute = function involute(r: number, theta: number, x: any) {
 };
 
 const tractrix = function tractrix(r: number, theta: number, x: any) {
-  if ((x = undefined)) {
+  if (x === undefined) {
     return r * (1 / Math.cosh(theta));
   }
   {
