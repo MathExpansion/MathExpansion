@@ -16,6 +16,11 @@ limitations under the License.
 
 function weibull_fitting() {
   const sheetrange = sheet.getActiveRange();
+
+  if (!sheetrange) {
+    throw new Error('sheetRange の取得で null が返却されました');
+  }
+
   const data = sheetrange.getValues();
 
   const sort = Array.from(data).sort(order);
