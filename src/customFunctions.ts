@@ -17,8 +17,7 @@ limitations under the License.
 const cycloid = function cycloid(r: number, theta: number, x: any) {
   if (x === undefined) {
     return r * (1 - Math.cos(theta));
-  }
-  {
+  } else {
     return r * (theta - Math.sin(theta));
   }
 };
@@ -26,8 +25,7 @@ const cycloid = function cycloid(r: number, theta: number, x: any) {
 const involute = function involute(r: number, theta: number, x: any) {
   if (x === undefined) {
     return r * (Math.sin(theta) - theta * Math.cos(theta));
-  }
-  {
+  } else {
     return r * (Math.cos(theta) + theta * Math.sin(theta));
   }
 };
@@ -35,8 +33,7 @@ const involute = function involute(r: number, theta: number, x: any) {
 const tractrix = function tractrix(r: number, theta: number, x: any) {
   if (x === undefined) {
     return r * (1 / Math.cosh(theta));
-  }
-  {
+  } else {
     return r * (theta - Math.tanh(theta));
   }
 };
@@ -48,10 +45,9 @@ const logarithmic_spiral = function logarithmic_spiral(
   x: any
 ) {
   const r = a * Math.exp(b * theta);
-  if ((x === undefined)) {
+  if (x === undefined) {
     return r * Math.sin(theta);
-  }
-  {
+  } else {
     return r * Math.cos(theta);
   }
 };
@@ -92,11 +88,11 @@ const integral = function integral(
   r: number
 ) {
   //fxには任意のリテラルカスタム関数を引数として入れてあげる，微小変位させたい引数はテスト時任意に指定する必要有り
-  let dx = 0.00001;
+  const dx = 0.00001;
   if (start > end) {
     [start, end] = [end, start];
   }
-  for (var x = start; x < end; x += dx) {
+  for (let x = start; x < end; x += dx) {
     r += f(x) * dx;
   }
   return r;
