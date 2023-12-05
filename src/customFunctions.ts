@@ -48,7 +48,7 @@ const logarithmic_spiral = function logarithmic_spiral(
   x: any
 ) {
   const r = a * Math.exp(b * theta);
-  if ((x = undefined)) {
+  if ((x === undefined)) {
     return r * Math.sin(theta);
   }
   {
