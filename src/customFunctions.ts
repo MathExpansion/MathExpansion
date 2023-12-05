@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 const cycloid = function cycloid(r: number, theta: number, x: any) {
-  if ((x = undefined)) {
+  if ((x === undefined)) {
     return r * (1 - Math.cos(theta));
   }
   {
