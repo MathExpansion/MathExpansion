@@ -14,6 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+# If you want to do advanced calculations with Google Spreadsheet, you should use it now.
+
 # Overview
 
 A project for implementing formula models in Google Spreadsheets.  
