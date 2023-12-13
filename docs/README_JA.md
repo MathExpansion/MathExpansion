@@ -15,10 +15,12 @@ limitations under the License.
 -->
 
 # 概要
-
+## Google Spreadsheets で高度な計算を行いたいなら今すぐ使うべき OSS
 
 ScriptID =  
-`1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc`  
+```
+1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc
+```  
 [DiscordURL](https://discord.gg/tKj4anHgu8)  
 [English](docs/README_ENG.md)
 
@@ -29,19 +31,17 @@ ScriptID =
 基本的にはSourcetreeでもGitBashでも何でもいいです  
 使い慣れている方を使ってください
 
+[最近は VSCode 上で Git 操作が完結するようになってきました](https://zenn.dev/praha/articles/db1c4bcc4ef48c)  
+
 ### Sourcetree
 
-- 導入方法
-  - <https://mteam.jp/column/10210/>
-- DL先
-  - <https://www.sourcetreeapp.com/>
+- [導入方法](https://mteam.jp/column/10210/)
+- [DL先](https://www.sourcetreeapp.com/)
 
 ### GitBash
 
-- 導入方法
-  - <https://www.sejuku.net/blog/72673>
-- DL先
-  - <https://gitforwindows.org/>
+- [導入方法](https://www.sejuku.net/blog/72673)
+- [DL先](https://gitforwindows.org/)
 
 ## ローカルからGASの環境構築をする
 
