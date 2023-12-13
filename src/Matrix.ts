@@ -13,10 +13,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-//配列(など)をJSONで厳密に比較
-function JSON_equal(x: any[], y: any) {
-  return JSON.stringify(x) === JSON.stringify(y);
-}
+
+import deepEqual from "deep-equal";
 
 //行列として扱えるか？扱えないならfalse, 扱えるなら[row, col]を返す。
 function is_matrix(array: any[]) {
@@ -85,7 +83,7 @@ function add_asmatrix(A: { [x: string]: { [x: string]: any; }; }, B: { [x: strin
   if (Amn === false || Bmn === false) {
     throw new Error('Array is not matrixlike.');
   }
-  if (!JSON_equal(Amn, Bmn)) {
+  if (!deepEqual(Amn, Bmn)) {
     throw new Error('row or column does not match.');
   }
   const tmp = zeros(...mn);
@@ -103,7 +101,7 @@ function sub_asmatrix(A: { [x: string]: { [x: string]: number; }; }, B: { [x: st
   if (Amn === false || Bmn === false) {
     throw new Error('Array is not matrixlike.');
   }
-  if (!JSON_equal(Amn, Bmn)) {
+  if (!deepEqual(Amn, Bmn)) {
     throw new Error('row or column does not match.');
   }
   const tmp = zeros(...mn);
@@ -233,7 +231,7 @@ function inner_prod(A: { [x: string]: { [x: string]: number; }; }[], B: { [x: st
   if (Amn === false || Bmn === false) {
     throw new Error('Array is not matrixlike.');
   }
-  if (!JSON_equal(Amn, Bmn)) {
+  if (!deepEqual(Amn, Bmn)) {
     throw new Error('inner product is not defined.');
   }
   let tmp = 0;

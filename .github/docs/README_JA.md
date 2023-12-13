@@ -13,11 +13,14 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-# 概要
 
-Google Spreadsheetsで数式モデルを実装したりするプロジェクト  
+# 概要
+## Google Spreadsheets で高度な計算を行いたいなら今すぐ使うべき OSS
+
 ScriptID =  
-`1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc`  
+```
+1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc
+```  
 [DiscordURL](https://discord.gg/tKj4anHgu8)  
 [English](docs/README_ENG.md)
 
@@ -28,19 +31,17 @@ ScriptID =
 基本的にはSourcetreeでもGitBashでも何でもいいです  
 使い慣れている方を使ってください
 
+[最近は VSCode 上で Git 操作が完結するようになってきました](https://zenn.dev/praha/articles/db1c4bcc4ef48c)  
+
 ### Sourcetree
 
-- 導入方法
-  - <https://mteam.jp/column/10210/>
-- DL先
-  - <https://www.sourcetreeapp.com/>
+- [導入方法](https://mteam.jp/column/10210/)
+- [DL先](https://www.sourcetreeapp.com/)
 
 ### GitBash
 
-- 導入方法
-  - <https://www.sejuku.net/blog/72673>
-- DL先
-  - <https://gitforwindows.org/>
+- [導入方法](https://www.sejuku.net/blog/72673)
+- [DL先](https://gitforwindows.org/)
 
 ## ローカルからGASの環境構築をする
 
@@ -60,18 +61,11 @@ npm --version
 
 - <https://kinsta.com/jp/blog/how-to-install-node-js/>
 
-上記インストール確認できたら、下記コマンドでclaspをインストール
-
-```
-npm install -g @google/clasp
-```
-
 ### 手順
 
 基本的には下記サイトを参考にしています
 
 - <https://dev.classmethod.jp/articles/gas-aside/>
-- <https://yoheikikuta.github.io/GAS_local_development_env/>
 
 #### GoogleAppsScriptAPIの有効化
 
@@ -79,33 +73,27 @@ GoogleAppsScriptAPIの設定画面からAPIを有効化
 
 - <https://script.google.com/home/usersettings>
 
-#### tsファイルをgsにコンパイル
+#### asideを用いたプロジェクト作成
 
-`./src` 以下で作成したファイルを `.gs` に変換（コンパイル）します  
-下記コマンドで変換
+下記コマンドをコマンドプロンプトで実行
 
 ```
-npx tsc
+npx @google/aside init
 ```
-
-変換されたファイルは `.dist` 以下に格納されます  
-※ `.dist` 以下は ignore に指定しているので、gitにpushしないでください
 
 #### デプロイ環境
 
 テスト用のスプレッドシートを各自で作成します  
-作成したスプレッドシートから Apps Script に移動し、プロジェクトの設定から `スクリプト ID` をコピーします
+作成したスプレッドシートからApps Scriptに移動し、プロジェクトの設定から `スクリプト ID`をコピーします
 
-コピーしたスクリプトIDを `clasp-dev.json` に入力します
+コピーしたスクリプトIDをclasp-dev.jsonに入力します
 
 ```
-{"scriptId":"{ここにスクリプトIDを入力してください}","rootDir":"./dist"}
+{"scriptId":"{ここにスクリプトIDを入力してください}","rootDir":"./src"}
 
 例:
-{"scriptId":"111122223333-4444","rootDir":"./dist"}
+{"scriptId":"111122223333-4444","rootDir":"./src"}
 ```
-
-`"rootDir":"./dist"` はデプロイ対象を `./dist` 以下にする設定になります
 
 #### デプロイテスト
 
@@ -143,9 +131,8 @@ $ npm run deploy:prod
 `#{issue番号} 内容` のようなメッセージにしてもらえると、issueとの紐づけができるのでありがたい  
 例: `#1 ReadMe更新`
 
-# その他
+# その他(others)
 
-手が空いた時に各々がやる感じなので、そこまで使命感みたいなのは持たなくて大丈夫だと思っている
 
 # 定数及びカスタム関数リファレンス
 
