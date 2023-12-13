@@ -204,7 +204,8 @@ function lower(A: { [x: string]: number[] }[]) {
   }
   return tmp;
 }
-//行列Aの上三角行列
+//行列Aの上三角行列 TODO : 解決方法が見つかれば復帰させる
+/*
 function upper(A: { [x: string]: { [x: string]: number } }[]) {
   const mn = is_matrix(A);
   if (mn === false) {
@@ -221,6 +222,8 @@ function upper(A: { [x: string]: { [x: string]: number } }[]) {
   }
   return tmp;
 }
+*/
+
 //行列のトレース(対角和)
 function tr(A: { [x: string]: { [x: string]: number } }) {
   const mn = is_matrix(A);
