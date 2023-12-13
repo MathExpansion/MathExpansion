@@ -64,21 +64,15 @@ Node --version
 npm --version
 ```
 
-If they don't, you can refer to the following instructions to install them:
-
-- [https://kinsta.com/jp/blog/how-to-install-node-js/](https://kinsta.com/jp/blog/how-to-install-node-js/)
+[If they don't, you can refer to the following instructions to install them:](https://kinsta.com/jp/blog/how-to-install-node-js/)
 
 ### Steps
 
-For the most part, we are following the instructions on the following site:
-
-- [https://dev.classmethod.jp/articles/gas-aside/](https://dev.classmethod.jp/articles/gas-aside/)
+[For the most part, we are following the instructions on the following site:](https://dev.classmethod.jp/articles/gas-aside/)
 
 #### Activating the Google Apps Script API
 
-Enable the Google Apps Script API from the settings page:
-
-- [https://script.google.com/home/usersettings](https://script.google.com/home/usersettings)
+[Enable the Google Apps Script API from the settings page:](https://script.google.com/home/usersettings)
 
 #### Creating a Project Using `aside`
 
