@@ -14,13 +14,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+# Messages
+
+We are developing the front end part using TypeScript to run industrial machines from the web using embedded Rust.  
+There are many challenges to documenting, community maintenance, development, and dissemination.  
+Therefore, we are looking for collaborators and contributors. We would like to accept everyone.  
+In order to digitize the manufacturing industry and make it more sustainable, we need to enlist the help of more people.  
+Since we are Japanese, we have to create English sentences with the help of people from English-speaking countries.  
+In fact, this post was created using Google Translate.  
+Would you like to make the manufacturing industry better through software technology?  
+
 # Overview
 
 A project for implementing formula models in Google Spreadsheets.  
 Script ID =
 `1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc`  
 [Discord URL](https://discord.gg/tKj4anHgu8)  
-[Japanese](docs/README_JA.md)
+[Japanese README](docs/README_JA.md)
 
 # Development Environment
 
@@ -30,17 +40,13 @@ You can use Sourcetree, GitBash, or any Git management tool you are comfortable 
 
 ### Sourcetree
 
-- Installation Guide
-  - [https://mteam.jp/column/10210/](https://mteam.jp/column/10210/)
-- Download
-  - [https://www.sourcetreeapp.com/](https://www.sourcetreeapp.com/)
+- [Installation Guide](https://mteam.jp/column/10210/)
+- [Download](https://www.sourcetreeapp.com/)
 
 ### GitBash
 
-- Installation Guide
-  - [https://www.sejuku.net/blog/72673](https://www.sejuku.net/blog/72673)
-- Download
-  - [https://gitforwindows.org/](https://gitforwindows.org/)
+- [Installation Guide](https://www.sejuku.net/blog/72673)
+- [Download](https://gitforwindows.org/)
 
 ### About error check
 
