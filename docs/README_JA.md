@@ -14,8 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+# If you want to do advanced calculations with Google Spreadsheet, you should use it now.
+
 # 概要
 
+Google Spreadsheetsで数式モデルを実装したりするプロジェクト
 
 ScriptID =  
 `1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc`  
@@ -26,8 +29,7 @@ ScriptID =
 
 ## Gitの管理ツールについて
 
-基本的にはSourcetreeでもGitBashでも何でもいいです  
-使い慣れている方を使ってください
+基本的には Sourcetree or GitBash を推奨します
 
 ### Sourcetree
 
@@ -47,10 +49,8 @@ ScriptID =
 
 ### 前提
 
-- 当プロジェクトディレクトリ `MathExpansion\MathExpansion` (cloneしたディレクトリ直下) 以下で作業するのを前提とする
-- コマンドプロンプトで `npm`, `node` コマンドが使用できる
-
-※下記コマンドでバージョンが表示されること
+- 当プロジェクトディレクトリ `MathExpansion\MathExpansion` (cloneしたディレクトリ直下) 以下で作業
+- コマンドプロンプトで下記コマンドを入力しバージョンが表示されること
 
 ```
 Node --version
@@ -114,6 +114,10 @@ $ npm run deploy
 $ npm run deploy:prod
 ```
 
+#### 開発に役立つ参考リンク集
+
+[ArrowFunction](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+
 # Branch
 
 ## ブランチ運用について
@@ -133,6 +137,12 @@ $ npm run deploy:prod
 
 # その他(others)
 
+手が空いた時に各々がやる感じなので、そこまで使命感みたいなのは持たなくて大丈夫だと思っている
+
+参照する画像は `Organization_profile` リポジトリ 直下 `img` に投入して絶対パスで参照してくれると助かる
+
+`feature/repair` 等々整備諸々終了後統合予定  
+当組織独自のものに関しては都度 `Copyright 2023 MathExpansion` 追記予定
 
 # 定数及びカスタム関数リファレンス
 

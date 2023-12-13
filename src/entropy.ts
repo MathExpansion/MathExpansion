@@ -13,6 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 function mixtureEntropy() {
   // 各成分の分子数
   const n1 = 100; // 成分1の分子数
@@ -31,25 +32,4 @@ function mixtureEntropy() {
     (n2 / totalMoles) * entropy2 +
     (n3 / totalMoles) * entropy3
   );
-}
-
-// 混合物内の成分ごとの情報を指定
-const components = [
-  { moles: 0.2, entropy: 100 }, // 成分1
-  { moles: 0.3, entropy: 150 }, // 成分2
-  { moles: 0.5, entropy: 200 }, // 成分3
-];
-
-function mixture_Entropy_array() {
-  // 混合物全体のエントロピーを計算
-  let totalEntropy = 0;
-
-  for (let i = 0; i < components.length; i++) {
-    const moles = components[i].moles;
-    const entropy = components[i].entropy;
-
-    // 各成分のエントロピーの重みつき合計を計算
-    totalEntropy += moles * entropy;
-  }
-  return totalEntropy;
 }

@@ -13,6 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 //sheet_loading
 const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
 const sheet = spreadsheet.getActiveSheet();
@@ -33,6 +34,7 @@ const electron_mass = Math.pow(9.1093837015, -31);
 const elementary_charge = Math.pow(1.602176634, -19);
 const Faraday_const = n_a * elementary_charge;
 const mass_electron = Math.pow(9.1093837015, -31);
+const speedOfLight = 299792458;
 const imag_unit = [
   [0, -1],
   [1, 0],
@@ -41,12 +43,11 @@ const imag_unit = [
 //Gaussian integral or Euler Poisson integral [-inf,inf]exp(-x^2)dx
 const gaussian_integral = Math.sqrt(Math.PI);
 
-//infinity
-const inf = Infinity;
+//infinity,golden_number
 const minus_inf = -Infinity;
+const golden_number = (1 + Math.sqrt(5)) / 2;
 
 //Fourier_Transform
-
 
 // 引数を配列に変換
 const args = Array.prototype.slice.call(arguments);

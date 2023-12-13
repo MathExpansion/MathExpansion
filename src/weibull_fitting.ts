@@ -13,14 +13,24 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+
 function weibull_fitting() {
   const sheetrange = sheet.getActiveRange();
+
+  if (!sheetrange) {
+    throw new Error('sheetRange の取得で null が返却されました');
+  }
+
   const data = sheetrange.getValues();
 
   const sort = Array.from(data).sort(order);
   sheetrange.setValues(sort);
 
-  function order(val1: number, val2: number) {
+  function order(numbers: number[]): number[] {
+    return numbers.slice().sort(data);
+  }
+
+  function order1(val1: number, val2: number) {
     if (val1 > val2) {
       return 1; //val1>val2の場合、val2をval1の前に配置
     } else if (val1 < val2) {

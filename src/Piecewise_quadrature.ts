@@ -13,7 +13,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-function piecewise_quadrature(n: number, k: number, stepSize: number, callbackFn: (value: number, index: number, array: any[]) => number) {
+
+function piecewise_quadrature(
+  n: number,
+  k: number,
+  stepSize: number,
+  callbackFn: (value: number, index: number, array: any[]) => number
+) {
   const map = minute_interval_(n, stepSize, k).map(callbackFn);
   const reduce = map.reduce(
     (previousValue, currentValue) => previousValue + currentValue
