@@ -35,7 +35,7 @@ class GumowskiMira {
   }
 
   // グモウスキー・ミラの写像を実行するメソッド
-  public run(
+  run(
     iterations: number,
     initialX: number,
     initialY: number
