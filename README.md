@@ -24,6 +24,8 @@ Since we are Japanese, we have to create English sentences with the help of peop
 In fact, this post was created using Google Translate.  
 Would you like to make the manufacturing industry better through software technology?  
 
+ - [Contributing.md](docs/Contributing_EN.md)
+
 # Overview
 
 A project for implementing formula models in Google Spreadsheets.  
