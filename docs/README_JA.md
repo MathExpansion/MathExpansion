@@ -17,6 +17,17 @@ limitations under the License.
 # 概要
 ## Google Spreadsheets で高度な計算を行いたいなら今すぐ使うべき OSS
 
+# メッセージ
+組み込み Rust を使って Web から産業機械を動かすフロントエンド部分を TypeScript で開発しています．  
+文書化，コミュニティの維持，開発，普及には多くの課題があります．  
+そこで，協力者・貢献者を募集しております．皆様を歓迎いたします．
+製造業をデジタル化し，より持続可能なものにするためには，より多くの人々の協力を得る必要があります．  
+私たちは日本人なので，英語圏の人の助けを借りて英文を作らなければなりません．  
+実際，この投稿は Google 翻訳を使用して作成されました．  
+ソフトウェア技術で製造業を良くしてみませんか？  
+
+ - [貢献方法について](docs/Contributing_JA.md)
+
 ScriptID =  
 ```
 1DbavNp1b_wXRyII-Q1Hsxa1RoHDOSBJmRPDH_PRbfe1-BSv0K-6boWWc
