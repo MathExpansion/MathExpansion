@@ -34,7 +34,7 @@ class BesselFunction {
   }
 
   // 第一種ベッセル関数の近似計算
-  public static besselJ(x: number, nMax: number = 10): number {
+  static besselJ(x: number, nMax: number = 10): number {
     // x が 0 の場合は 1 を返す
     if (x === 0) {
       return 1;
@@ -49,7 +49,7 @@ class BesselFunction {
   }
 
   // 第二種ベッセル関数の近似計算
-  public static besselY(x: number, nMax: number = 10): number {
+  static besselY(x: number, nMax: number = 10): number {
     // x が 0 の場合は無限大に発散する
     if (x === 0) {
       return Infinity;
