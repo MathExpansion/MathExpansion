@@ -81,7 +81,7 @@ const nernst = (
   ((gas_const * K) / (ion_valent * Faraday_const)) *
   Math.log(C_Outside / C_Inside);
 
-const integral = function integral(
+function integral(
   f: (x: number) => number,
   start: number,
   end: number,
