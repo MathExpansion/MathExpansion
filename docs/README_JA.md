@@ -15,7 +15,7 @@ limitations under the License.
 -->
 
 # 概要
-## Google Spreadsheets で高度な計算を行いたいなら今すぐ使うべき OSS
+## Google Spreadsheets で数値計算を行う OSS
 
 # メッセージ
 組み込み Rust を使って Web から産業機械を動かすフロントエンド部分を TypeScript で開発しています．  
